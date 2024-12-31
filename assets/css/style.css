@@ -1,13 +1,5 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: kreatazz - Technology IT Solutions Consultancy HTML5 Template
-    Template URI: https://thepixelcurve.com/
-    Description: A Library of Responsive Bootstrap5, HTML5, and CSS3 Website Templates
-    Author: Pixelcurve
-    Author URI: https://thepixelcurve.com/
-    Version: 1.0
-
-
 -----------------------------------------------------------------------------------
     
     CSS INDEX
@@ -62,7 +54,7 @@ body {
   font-size: 14px;
   line-height: 1.75;
   font-weight: 400;
-  font-family: "Jost", sans-serif;
+  font-family: "Calibri", sans-serif;
   color: #4c4d56;
   outline: none;
   visibility: visible;
@@ -82,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Barlow", sans-serif;
+  font-family: "Georgia", serif;
   color: #0e0e0e;
   font-weight: 700;
   margin-top: 0;
