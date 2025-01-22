@@ -109,8 +109,8 @@
 
         <script>
             function toggleSection(element) {
-                if (element.style.height === "70px") {
-                    element.style.height = "auto";
+                if (element.style.height === "70px" || element.style.height === "") {
+                    element.style.height = element.scrollHeight + "px";
                 } else {
                     element.style.height = "70px";
                 }
