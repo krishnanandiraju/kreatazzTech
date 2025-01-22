@@ -12,7 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 
     <!-- CSS
-    ============================================ -->
+	============================================ -->
 
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="assets/css/plugins/all.min.css">
@@ -26,7 +26,15 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        #header {
+            height: 10vh;
+        }
 
+        #footer {
+            height: 20vh;
+        }
+    </style>
 
     <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
     <!-- <link rel="stylesheet" href="assets/css/vendor/plugins.min.css">
@@ -37,6 +45,8 @@
         $(document).ready(function () {
             $("#header").load("header.html");
             $("#footer").load("footer.html");
+
+
         });
     </script>
 </head>
@@ -45,18 +55,19 @@
     <div id="header"></div>
     <div id="Cloud_Migration" class="main-wrapper">
 
-        <header class="page-header">
-            <h1 class="page-title">Cloud Migration </h1>
-            <p class="page-description">Explore our Cloud Migration services to
+
+        <header>
+            <h1>Cloud Migration </h1>
+            <p>Explore our Cloud Migration services to
                 transform your business with innovative solutions.</p>
         </header>
 
         <!-- Cloud Migration Services -->
-        <section id="cloud-migration" class="service-section">
-            <h2 class="section-title">Cloud Migration Services</h2>
+        <section id="cloud-migration">
+            <h2>Cloud Migration Services</h2>
 
-            <h3 class="service-subtitle">Cloud Strategy and Consulting</h3>
-            <ul class="service-list">
+            <h3>Cloud Strategy and Consulting</h3>
+            <ul>
                 <li><strong>Cloud Readiness Assessment:</strong> Evaluate current infrastructure and readiness for
                     migration.</li>
                 <li><strong>Cloud Adoption Roadmap:</strong> Develop a clear strategy for cloud adoption, including
@@ -65,8 +76,8 @@
                     to business needs.</li>
             </ul>
 
-            <h3 class="service-subtitle">Cloud Migration Services</h3>
-            <ul class="service-list">
+            <h3>Cloud Migration Services</h3>
+            <ul>
                 <li><strong>Lift and Shift Migration:</strong> Move applications and data to the cloud with minimal
                     changes.</li>
                 <li><strong>Re-platforming:</strong> Modify applications for cloud compatibility without significant
@@ -75,8 +86,8 @@
                     and scalability.</li>
             </ul>
 
-            <h3 class="service-subtitle">Cloud Integration Services</h3>
-            <ul class="service-list">
+            <h3>Cloud Integration Services</h3>
+            <ul>
                 <li><strong>Hybrid Cloud Integration:</strong> Seamlessly integrate on-premises infrastructure with
                     public/private clouds.</li>
                 <li><strong>Multi-Cloud Strategy:</strong> Implement a multi-cloud approach for improved flexibility and
@@ -85,8 +96,8 @@
                     systems.</li>
             </ul>
 
-            <h3 class="service-subtitle">Cloud Optimization & Management</h3>
-            <ul class="service-list">
+            <h3>Cloud Optimization & Management</h3>
+            <ul>
                 <li><strong>Cost Optimization:</strong> Identify and implement cost-saving strategies for cloud
                     infrastructure.</li>
                 <li><strong>Cloud Monitoring and Management:</strong> Continuous monitoring and proactive management of
