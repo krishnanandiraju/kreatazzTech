@@ -74,8 +74,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Georgia", serif;
-  color: #0e0e0e;
+  font-family: "Calibri", sans-serif;
+  color: #0078BF;
   font-weight: 700;
   margin-top: 0;
   line-height: 1.5;
@@ -130,7 +130,7 @@ p {
 
 a,
 button {
-  color: inherit;
+  color: #EED148;
   display: inline-block;
   line-height: inherit;
   text-decoration: none;
@@ -164,7 +164,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #086ad8;
+  color: #EED148;
 }
 
 ul,
@@ -281,9 +281,9 @@ textarea:-ms-input-placeholder {
 .section-title .title {
   font-size: 48px;
   line-height: 54px;
-  font-family: "Barlow", sans-serif;
+  font-family: "Calibri", sans-serif;
   font-weight: 600;
-  color: #0e0e0e;
+  color: #066e0e;
 }
 
 @media only screen and (max-width: 767px) {
@@ -300,7 +300,7 @@ textarea:-ms-input-placeholder {
 .section-title .sub-title {
   font-size: 14px;
   line-height: 30px;
-  font-family: "Jost", sans-serif;
+  font-family: "Calibri", sans-serif;
   font-weight: 500;
   color: #086ad8;
   letter-spacing: 1px;
@@ -780,15 +780,15 @@ textarea:-ms-input-placeholder {
   font-family: "Barlow", sans-serif;
   font-weight: 700;
   text-transform: capitalize;
-  color: #0e0e0e;
+  color: #EED148;
 }
 
 .header-menu .main-menu li.active-menu>a {
-  color: #086ad8;
+  color: #EED148;
 }
 
 .header-menu .main-menu li.active-menu>.menu-icon::after {
-  color: #086ad8;
+  color: #EED148;
 }
 
 .header-menu .main-menu li .menu-icon::after {
@@ -805,7 +805,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li:hover>a {
-  color: #086ad8;
+  color: orange !important;
 }
 
 .header-menu .main-menu li:hover>.sub-menu {
@@ -846,11 +846,11 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li .sub-menu li.active>a {
-  color: #086ad8;
+  color: #EED148;
 }
 
 .header-menu .main-menu li .sub-menu li:hover>a {
-  color: #086ad8;
+  color: #EED148;
 }
 
 .header-meta {
