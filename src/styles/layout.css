@@ -1,0 +1,103 @@
+#root {
+  isolation: isolate;
+}
+
+.shell {
+  width: min(1120px, 100% - 2.2rem);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--kz-border);
+  background: rgba(8, 13, 23, 0.78);
+}
+
+.header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #001834;
+  background: linear-gradient(140deg, var(--kz-blue), #67b6ff 74%);
+}
+
+.brand-text {
+  font-size: 0.97rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--kz-text);
+}
+
+.nav-list {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.nav-list a {
+  display: inline-flex;
+  padding: 0.48rem 0.72rem;
+  border-radius: 999px;
+  color: var(--kz-muted);
+  text-decoration: none;
+  font-size: 0.83rem;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  color: var(--kz-text);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.site-footer {
+  border-top: 1px solid var(--kz-border);
+  padding: 2.2rem 0 2.8rem;
+}
+
+.footer-inner {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.footer-inner p,
+.footer-inner small {
+  color: var(--kz-muted);
+  font-size: 0.85rem;
+}
+
+.footer-inner a {
+  color: var(--kz-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
