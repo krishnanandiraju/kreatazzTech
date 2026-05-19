@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build static website
-        run: npm run build
+        run: npm run build -- --base=/preview/
 
       - name: Validate deployment secrets
         shell: bash
@@ -81,5 +81,5 @@ jobs:
           port: ${{ secrets.FTP_PORT || vars.FTP_PORT || 21 }}
           protocol: ${{ secrets.FTP_PROTOCOL || vars.FTP_PROTOCOL || 'ftp' }}
           local-dir: ./dist/
-          server-dir: /
+          server-dir: /preview/
           dangerous-clean-slate: false
