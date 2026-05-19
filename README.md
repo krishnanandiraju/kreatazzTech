@@ -98,6 +98,8 @@ Set these repository secrets in GitHub:
 - `FTP_PASSWORD`
 - `FTP_PORT` (optional, defaults to 21)
 
+`FTP_SERVER_DIR` is not needed for this workflow because the preview deploy target is fixed to `/`.
+
 Then trigger deploy by:
 
 1. Pushing to `main`, or

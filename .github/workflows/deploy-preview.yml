@@ -1,6 +1,7 @@
 name: Deploy Kreatazz Preview to GoDaddy
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -12,6 +13,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: preview
 
     steps:
       - name: Checkout repository
@@ -28,6 +30,24 @@ jobs:
       - name: Build static website
         run: npm run build
 
+      - name: Validate deployment secrets
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          missing=()
+
+          [ -n "$FTP_SERVER" ] || missing+=("FTP_SERVER")
+          [ -n "$FTP_USERNAME" ] || missing+=("FTP_USERNAME")
+          [ -n "$FTP_PASSWORD" ] || missing+=("FTP_PASSWORD")
+
+          if [ ${#missing[@]} -gt 0 ]; then
+            echo "::error::Missing GitHub Actions secrets: ${missing[*]}"
+            exit 1
+          fi
+
       - name: Deploy dist to GoDaddy preview folder
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -35,5 +55,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: /
           dangerous-clean-slate: false
