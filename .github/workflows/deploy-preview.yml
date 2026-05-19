@@ -13,7 +13,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: preview
+    environment: deploy_to_godaddy
     env:
       FTP_SERVER: ${{ secrets.FTP_SERVER || vars.FTP_SERVER }}
       FTP_USERNAME: ${{ secrets.FTP_USERNAME || vars.FTP_USERNAME }}
