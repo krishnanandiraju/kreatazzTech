@@ -48,12 +48,38 @@ jobs:
             exit 1
           fi
 
+      - name: Normalize and validate FTP host
+        shell: bash
+        run: |
+          # Accept either host-only or URL-like input and normalize to host for the action.
+          host="$FTP_SERVER"
+          host="${host#ftp://}"
+          host="${host#ftps://}"
+          host="${host%%/*}"
+          host="${host%%:*}"
+          host="$(echo "$host" | tr -d '\r\n\t ' )"
+
+          if [ -z "$host" ]; then
+            echo "::error::FTP_SERVER resolves to an empty host after normalization"
+            exit 1
+          fi
+
+          if ! getent ahosts "$host" >/dev/null 2>&1; then
+            echo "::error::FTP host does not resolve in DNS: $host"
+            echo "::error::Use a real FTP hostname from GoDaddy/cPanel (not SFTP host and not full URL path)."
+            exit 1
+          fi
+
+          echo "FTP_SERVER_HOST=$host" >> "$GITHUB_ENV"
+
       - name: Deploy dist to GoDaddy preview folder
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ${{ env.FTP_SERVER }}
+          server: ${{ env.FTP_SERVER_HOST }}
           username: ${{ env.FTP_USERNAME }}
           password: ${{ env.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || vars.FTP_PORT || 21 }}
+          protocol: ${{ secrets.FTP_PROTOCOL || vars.FTP_PROTOCOL || 'ftp' }}
           local-dir: ./dist/
           server-dir: /
           dangerous-clean-slate: false
