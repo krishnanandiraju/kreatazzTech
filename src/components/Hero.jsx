@@ -18,6 +18,10 @@ function Hero({ content }) {
         </div>
 
         <aside className="hero-panel" aria-label="Delivery highlights">
+          <div className="hero-visual" aria-hidden="true">
+            <img src={content.image} alt="" loading="eager" />
+            <span className="media-overlay" />
+          </div>
           <h2>{content.panelTitle}</h2>
           <ul>
             {content.stats.map((item) => (

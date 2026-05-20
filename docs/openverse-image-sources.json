@@ -1,0 +1,35 @@
+﻿[
+    {
+        "Query":  "software development office team",
+        "File":  "public/blog/licensed-app-development.jpg",
+        "Title":  "Development team",
+        "Creator":  "@boetter",
+        "Provider":  "flickr",
+        "License":  "by",
+        "LicenseVersion":  "unknown",
+        "Source":  "https://www.flickr.com/photos/47854931@N00/972528670",
+        "Url":  "https://live.staticflickr.com/1017/972528670_361605caeb_b.jpg"
+    },
+    {
+        "Query":  "artificial intelligence technology circuit",
+        "File":  "public/blog/licensed-ai-analytics.jpg",
+        "Title":  "Artificial intelligence",
+        "Creator":  "Wendelin Jacober",
+        "Provider":  "flickr",
+        "License":  "cc0",
+        "LicenseVersion":  "1.0",
+        "Source":  "https://www.flickr.com/photos/91619724@N04/51917430076",
+        "Url":  "https://live.staticflickr.com/65535/51917430076_f988efa3bd_b.jpg"
+    },
+    {
+        "Query":  "business handshake office",
+        "File":  "public/blog/licensed-executive-search.jpg",
+        "Title":  "Handshake - 2 men",
+        "Creator":  "flazingo_photos",
+        "Provider":  "flickr",
+        "License":  "by-sa",
+        "LicenseVersion":  "2.0",
+        "Source":  "https://www.flickr.com/photos/124247024@N07/13903385550",
+        "Url":  "https://live.staticflickr.com/5198/13903385550_39f7316982_b.jpg"
+    }
+]
