@@ -81,4 +81,4 @@ jobs:
           protocol: ${{ secrets.FTP_PROTOCOL || vars.FTP_PROTOCOL || 'ftp' }}
           local-dir: ./dist/
           server-dir: /
-          dangerous-clean-slate: false
+          dangerous-clean-slate: true
