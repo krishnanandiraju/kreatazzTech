@@ -11,124 +11,245 @@ export const siteContent = {
   location: 'Pune, Maharashtra, India',
   nav: [
     { label: 'Home', href: '#home' },
-    { label: 'About Us', href: '#about-us' },
-    { label: 'Services', href: '#services' },
-    { label: 'Solutions', href: '#solutions' },
+    { label: 'Deployment Layer', href: '#deployment-layer' },
+    { label: 'Operating Model', href: '#operating-model' },
+    { label: 'Industries', href: '#industries' },
+    { label: 'Capabilities', href: '#capabilities' },
     { label: 'Products', href: '#products' },
-    { label: 'Blog', href: '/blog/' },
-    { label: 'Contact Us', href: '#contact-us' },
+    { label: 'Contact', href: '#contact-us' },
   ],
   hero: {
-    eyebrow: 'Kreatazz Innovation Technology Solutions',
-    headline: 'Innovate. Build. Scale.',
+    eyebrow: 'Operational Intelligence Company',
+    headline: 'Operationalize AI. Create Business Advantage.',
     subheadline:
-      'At Kreatazz Innovation Technology Solutions, we partner with ambitious companies to design, build, and scale modern technology systems. From product engineering and cloud platforms to AI-driven solutions, we work as an extension of your team to turn ideas into reliable, scalable technology.',
-    primaryCta: { label: 'Start a Conversation', href: '#contact-us' },
-    secondaryCta: { label: 'Explore Our Services', href: '#services' },
-    image: '/hero/hero-boardroom-ai.jpg',
-    panelTitle: 'Execution Principles',
+      'Kreatazz helps enterprises move from AI experimentation to real-world execution by embedding intelligence into workflows, systems, knowledge, and decision-making.',
+    proofLine: 'The distance between intelligence and impact is execution.',
+    primaryCta: { label: 'Schedule a Strategy Session', href: '#contact-us' },
+    secondaryCta: { label: 'Explore the Deployment Layer', href: '#deployment-layer' },
+    image: '/operational-intelligence/enterprise-nervous-system.svg',
+    panelTitle: 'From Capability to Execution',
     stats: [
-      { label: 'Delivery Focus', value: 'Business outcomes first' },
-      { label: 'Execution Model', value: 'Product + platform + operations' },
-      { label: 'Partnership Style', value: 'Embedded with your teams' },
+      { label: 'Category', value: 'Operational Intelligence' },
+      { label: 'Role', value: 'Deployment layer between AI and enterprise execution' },
+      { label: 'Outcome', value: 'Better decisions, faster execution, scalable expertise' },
     ],
   },
-  about: {
-    kicker: 'Who we are',
-    title: 'Built for Complex Technology Programs',
+  belief: {
+    kicker: 'The shift',
+    title: 'AI access is no longer the advantage. Execution is.',
     intro:
-      'Kreatazz Innovation Technology Solutions helps ambitious businesses design, build, and scale intelligent digital systems across product engineering, AI/data platforms, workflow automation, cloud modernization, and industry-specific solutions.',
-    image: '/hero/office-team-large.jpg',
+      'Most organizations now have access to powerful models, tools, and platforms. Real value is created only when intelligence becomes part of daily operations: improving decisions, accelerating workflows, scaling knowledge, and helping people perform better.',
+    quote: 'Frontier AI creates possibilities. Operational intelligence creates outcomes.',
+  },
+  deploymentLayer: {
+    kicker: 'The Kreatazz Deployment Layer',
+    title: 'The operational bridge between frontier AI and enterprise execution.',
+    intro:
+      'This is the centerpiece of the Kreatazz category narrative. We connect rapidly evolving AI capability to the people, workflows, systems, and decisions where business value is created.',
+    visual: '/operational-intelligence/deployment-layer.svg',
+    layers: [
+      {
+        name: 'Frontier AI',
+        detail: 'Models, agents, copilots, industry AI, knowledge systems',
+      },
+      {
+        name: 'Kreatazz',
+        detail: 'Operational Intelligence Layer: architecture, integration, orchestration, governance',
+      },
+      {
+        name: 'Enterprise Execution',
+        detail: 'People, workflows, systems, decisions, performance',
+      },
+    ],
+  },
+  outcomes: {
+    kicker: 'What changes after Kreatazz?',
+    title: 'AI becomes an operating capability, not a disconnected pilot.',
+    intro:
+      'We help organizations convert AI potential into measurable operating improvements that business leaders can understand, fund, and scale.',
+    items: [
+      {
+        title: 'Learn faster',
+        description: 'Institutional knowledge becomes searchable, reusable, and easier to apply across teams.',
+      },
+      {
+        title: 'Decide faster',
+        description: 'Decision cycles shrink because leaders and teams work with better context at the right moment.',
+      },
+      {
+        title: 'Execute better',
+        description: 'Workflows become more adaptive, measurable, and connected to operational outcomes.',
+      },
+      {
+        title: 'Scale expertise',
+        description: 'Human expertise is amplified through intelligent systems that support more people and locations.',
+      },
+    ],
+  },
+  operatingModel: {
+    kicker: 'How we work',
+    title: 'Discover. Architect. Deploy. Evolve.',
+    intro:
+      'Kreatazz combines strategy, workflow architecture, AI deployment, and continuous optimization to build durable enterprise capability.',
+    steps: [
+      {
+        title: 'Discover',
+        subtitle: 'Identify where intelligence creates value',
+        points: [
+          'Opportunity discovery',
+          'Workflow mapping',
+          'Operational maturity assessment',
+          'Value prioritization',
+          'Transformation roadmap',
+        ],
+      },
+      {
+        title: 'Architect',
+        subtitle: 'Design intelligent systems of execution',
+        points: [
+          'Workflow architecture',
+          'Knowledge architecture',
+          'Decision intelligence design',
+          'Human-AI collaboration model',
+          'Governance framework',
+        ],
+      },
+      {
+        title: 'Deploy',
+        subtitle: 'Operationalize intelligence inside the enterprise',
+        points: [
+          'AI platform integration',
+          'Enterprise connectivity',
+          'Workflow orchestration',
+          'Agent deployment',
+          'Operational dashboards',
+        ],
+      },
+      {
+        title: 'Evolve',
+        subtitle: 'Create continuous improvement systems',
+        points: [
+          'Performance analytics',
+          'Workflow optimization',
+          'Knowledge expansion',
+          'Adoption metrics',
+          'Governance monitoring',
+        ],
+      },
+    ],
+  },
+  framework: {
+    kicker: 'Operating principles',
+    title: 'Human-centered intelligence for real operations.',
+    intro:
+      'We design intelligence systems around the way work actually happens, not around demos, tools, or isolated automations.',
+    items: [
+      {
+        title: 'Human-Centered AI',
+        description: 'AI enhances expertise, accelerates execution, and keeps people responsible for outcomes.',
+      },
+      {
+        title: 'Workflow Intelligence',
+        description: 'Workflows become adaptive systems capable of learning, reasoning, and improving.',
+      },
+      {
+        title: 'Enterprise Integration',
+        description: 'Intelligence works inside existing tools, data, systems, governance, and operating realities.',
+      },
+      {
+        title: 'Continuous Evolution',
+        description: 'Feedback loops help knowledge systems and decision frameworks improve over time.',
+      },
+    ],
+  },
+  industries: {
+    kicker: 'Industry focus',
+    title: 'Operational intelligence for complex operating environments.',
+    intro:
+      'Kreatazz is especially focused on environments where people, knowledge, systems, and execution must work together with precision.',
+    items: [
+      {
+        title: 'Manufacturing Intelligence',
+        description:
+          'Production intelligence, quality visibility, maintenance intelligence, operational reporting, and manufacturing knowledge networks.',
+        href: '/manufacturing-intelligence/',
+      },
+      {
+        title: 'Engineering Intelligence',
+        description:
+          'Impact analysis, requirements intelligence, technical knowledge systems, design collaboration, and engineering workflow support.',
+        href: '/engineering-intelligence/',
+      },
+      {
+        title: 'Workforce Intelligence',
+        description:
+          'Skills mapping, workforce planning, resource optimization, capability visibility, and productivity systems.',
+        href: '/workforce-intelligence/',
+      },
+      {
+        title: 'Enterprise Function Intelligence',
+        description:
+          'Sales operations, procurement, finance workflows, project delivery, customer experience, and knowledge management.',
+        href: '/enterprise-function-intelligence/',
+      },
+    ],
   },
   services: {
-    kicker: 'What We Do?',
-    title: 'Services & Capabilities',
+    kicker: 'Capabilities',
+    title: 'Practical capabilities that help enterprises operationalize intelligence.',
     intro:
-      'We combine engineering discipline with practical delivery speed to move ideas into stable, production-ready systems.',
+      'The previous service strengths remain, but they are now framed as capability-building blocks inside the Operational Intelligence story.',
     items: [
       {
         title: 'AI & Data Platforms',
         description:
-          'Modern data foundations, model-ready pipelines, and decision systems built for real business usage.',
+          'Modern data foundations, model-ready pipelines, knowledge retrieval, and decision systems built for operational usage.',
         image: '/services/service-ai-data.png',
         href: '/ai-ml-solutions/',
       },
       {
         title: 'Product Engineering',
         description:
-          'Web and platform product development with clean architecture, maintainable code, and practical release velocity.',
+          'Web, platform, and internal product development with clean architecture and accountable release velocity.',
         image: '/services/service-product-engineering.jpg',
         href: '/mobile-and-web-application-development/',
       },
       {
         title: 'Healthcare Data Solutions',
         description:
-          'Structured, compliant, and user-centered systems that make healthcare data useful across teams.',
+          'Structured, compliant, and workflow-aware systems that make healthcare data useful across teams.',
         image: '/services/service-healthcare-digital.png',
         href: '/healthcare-care-operations/',
       },
       {
         title: 'Workflow & Operations Platforms',
         description:
-          'Internal tools and workflow engines that remove repetitive effort and improve service delivery.',
+          'Execution platforms, workflow orchestration, internal tools, and dashboards that improve operating rhythm.',
         image: '/services/service-workflow-operations.jpg',
-        href: '/enterprise-workflow-modernization/',
+        href: '/enterprise-function-intelligence/',
       },
       {
         title: 'Cloud, DevOps & Automation',
         description:
-          'Cloud-native deployment, CI automation, and observability patterns to keep systems reliable.',
+          'Cloud-native deployment, CI automation, observability, and reliability patterns for production-grade systems.',
         image: '/services/service-cloud-devops.jpg',
         href: '/cloud-migration/',
       },
       {
         title: 'Real-estate Personalization Systems',
         description:
-          'Digital buyer journey tools that help property teams personalize decisions and accelerate conversions.',
+          'Digital buyer journey tools that personalize decisions and improve conversion confidence.',
         image: '/services/service-realestate-placeholder-team.jpg',
         href: '/real-estate-buyer-experience/',
       },
     ],
   },
-  solutions: {
-    kicker: 'Industries / Solutions',
-    title: 'Where We Create Impact',
-    intro:
-      'We tailor system design and rollout strategies for industries that demand reliability, workflow precision, and measurable results.',
-    items: [
-      {
-        title: 'Healthcare & Care Operations',
-        description: 'Data flows, compliance-aware interfaces, and operational visibility for care delivery teams.',
-        href: '/healthcare-care-operations/',
-      },
-      {
-        title: 'Real Estate & Buyer Experience',
-        description: 'Personalization tools and decision support workflows that improve customer confidence and conversion.',
-        href: '/real-estate-buyer-experience/',
-      },
-      {
-        title: 'Enterprise Workflow Modernization',
-        description: 'Automation-first systems that connect departments, remove bottlenecks, and increase execution speed.',
-        href: '/enterprise-workflow-modernization/',
-      },
-    ],
-  },
   products: {
     kicker: 'Products',
-    title: 'Product Portfolio',
+    title: 'Product portfolio and internal platforms.',
     intro:
-      'Kreatazz builds focused software products alongside client delivery. Keyora is currently in private development, while PeopleOS HRMS is live.',
+      'Kreatazz builds focused software products alongside client delivery. These remain part of the company story, while the main website positioning now leads with Operational Intelligence.',
     items: [
-      {
-        name: 'Keyora',
-        tagline: 'Approved choices before the keys.',
-        status: 'Private Beta',
-        description:
-          'Keyora (formerly Kreatazz Spaces) is our real-estate buyer personalization product. Public access is intentionally restricted while product hardening is in progress.',
-        image: '/products/keyora-symbol.png',
-        visualMode: 'contain',
-        note: 'Under development. No public URL exposed yet.',
-      },
       {
         name: 'PeopleOS HRMS',
         tagline: 'Operational HRMS for execution-focused teams.',
@@ -142,67 +263,51 @@ export const siteContent = {
       },
     ],
   },
-  howWeWork: {
-    kicker: 'How We Work',
-    title: 'How We Work',
+  whyKreatazz: {
+    kicker: 'Why Kreatazz',
+    title: 'Small by design. Expert-led by choice. Execution-focused by default.',
     intro:
-      'Focused delivery from discovery to production, with transparent checkpoints and continuous iteration.',
-    steps: [
-      'Discovery and workflow mapping',
-      'Architecture and implementation planning',
-      'Iterative build with demos and feedback',
-      'Production release and reliability hardening',
+      'Large firms bring scale. Kreatazz brings senior attention, practical architecture, and the ability to work close to real operating teams.',
+    points: [
+      'We understand both technology and operations.',
+      'We convert AI experiments into business capabilities.',
+      'We design for adoption, governance, and measurable outcomes.',
+      'We integrate intelligence into existing systems instead of forcing rip-and-replace programs.',
+      'We build with the discipline of product engineering and the urgency of business execution.',
     ],
   },
-  whyKreatazz: {
-    title: 'Why Kreatazz',
-    points: [
-      'Business-first architecture and delivery decisions',
-      'AI and data implementation without unnecessary hype',
-      'Strong product, platform, and operations alignment',
-      'Fast prototype-to-production execution model',
-      'Clear communication with accountable ownership',
-    ],
+  vision: {
+    kicker: 'Vision',
+    title: 'Intelligence is becoming infrastructure.',
+    intro:
+      'Electricity transformed industry. Software transformed business. Artificial intelligence is transforming execution. The future enterprise will not be defined only by the AI models it accesses, but by how effectively intelligence flows through its operations.',
+    closing:
+      'Kreatazz exists to help enterprises build intelligent operations at the intersection of frontier AI, enterprise systems, human expertise, and business execution.',
   },
   blog: {
-    kicker: 'Blog',
-    title: 'Insights for Technology Leaders',
-    intro: 'Fresh thinking from the field while full publishing workflows are being finalized.',
-    posts: [
-      {
-        title: 'Designing AI-Ready Data Platforms That Teams Actually Use',
-        excerpt: 'How to connect data architecture, model workflows, and operational adoption from day one.',
-        image: '/blog/blog-ai-business.jpg',
-      },
-      {
-        title: 'From Workflow Pain to Platform Clarity in 90 Days',
-        excerpt: 'A practical roadmap to modernize fragmented internal systems without disrupting delivery.',
-        image: '/blog/blog-product-mobile.jpg',
-      },
-      {
-        title: 'Modern Product Engineering for High-Accountability Teams',
-        excerpt: 'Patterns for faster releases, cleaner codebases, and lower long-term maintenance risk.',
-        image: '/blog/blog-cloud-strategy.jpg',
-      },
-    ],
+    kicker: 'Insights',
+    title: 'Thinking for technology and operations leaders.',
+    intro:
+      'Existing blog content is preserved while the next publishing cycle can align to Operational Intelligence, workflow intelligence, and execution capability.',
   },
   contact: {
-    title: 'Contact Us',
-    text: 'Planning a new platform, modernization initiative, or AI-enabled workflow? Let us shape the build with you.',
-    ctaLabel: 'Start a Conversation',
-    secondaryCtaLabel: 'Explore Our Services',
-    secondaryCtaHref: '#services',
+    title: 'Build Your Operational Intelligence Advantage',
+    text:
+      'Whether you are exploring enterprise AI, modernizing operations, scaling intelligent workflows, or creating new operating models, Kreatazz provides the strategy, architecture, deployment expertise, and continuous optimization needed to transform AI capability into business capability.',
+    ctaLabel: 'Schedule a Strategy Session',
+    secondaryCtaLabel: 'Review Capabilities',
+    secondaryCtaHref: '#capabilities',
   },
   footer: {
-    note: 'Calm execution. Clear architecture. Useful software.',
+    note: 'Operational Intelligence. Enterprise Execution. Human-Centered AI.',
     services: [
+      'Operational Intelligence',
       'AI & Data Platforms',
+      'Workflow Intelligence',
       'Product Engineering',
-      'Workflow & Operations Platforms',
       'Cloud, DevOps & Automation',
     ],
     products: [
-      { label: 'Keyora (Private Beta)', href: null },
       { label: 'PeopleOS HRMS', href: 'https://app.peopleos.kretazz.tech' },
     ],
   },

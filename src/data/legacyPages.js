@@ -1,61 +1,69 @@
 export const legacyPages = [
   {
     slug: 'about',
-    title: 'About Us',
+    title: 'About Kreatazz',
     intro:
-      'Kreatazz is an innovative IT services startup with presence in Pune and Hyderabad, focused on tailored technology delivery and exceptional talent solutions.',
+      'Kreatazz is an Operational Intelligence company helping enterprises transform AI capability into execution capability across people, knowledge, workflows, systems, and decisions.',
     sections: [
       {
-        heading: 'Highly Tailored IT Design, Management & Support Services',
+        heading: 'From Legacy AI Positioning to Operational Intelligence',
         body: [
-          'We understand the unique challenges businesses face and provide solutions tailored to those realities through practical engineering and strong delivery governance.',
-          'Our knowledge and industry insights position us as a trusted partner in delivering cutting-edge technology solutions and exceptional talent to our clients.',
+          'Kreatazz is moving beyond generic implementation language. Our focus is to help organizations become more intelligent in the way they learn, decide, and execute.',
+          'We work as a focused, expert-led partner that understands both technology and operations, enabling AI to become part of real business execution rather than remaining a disconnected pilot.',
         ],
       },
       {
         heading: 'Our Vision',
         body: [
-          'To be the leading force in driving digital transformation, empowering businesses across industries with innovative technology solutions and exceptional talent.',
+          'To help enterprises build intelligence infrastructure: operating models where human expertise, enterprise systems, organizational knowledge, data, and AI capabilities work together as a connected execution system.',
         ],
       },
       {
         heading: 'Our Mission',
         body: [
-          'To harness deep industry insights and passion for technology to deliver exceptional and tailored solutions to businesses.',
+          'To operationalize intelligence by discovering high-value opportunities, architecting intelligent workflows, deploying AI-enabled capabilities, and evolving them through continuous improvement.',
         ],
       },
       {
-        heading: 'Why Choose Us',
+        heading: 'What We Preserve From Our Roots',
         list: [
-          'Expertise: Seasoned professionals with deep domain and technical knowledge.',
-          'Innovation: Practical use of modern technology and contemporary delivery patterns.',
-          'Customer-Centricity: Outcomes aligned to business goals and operational constraints.',
-          'Reliability: Consistent execution with quality-focused implementation.',
-          'Commitment to Quality: High standards in architecture, code quality, and support.',
+          'Practical engineering execution',
+          'Customer-centric delivery ownership',
+          'Product, platform, and operations alignment',
+          'Cloud, data, workflow, and application development capability',
+          'Reliable partnership for businesses that need outcomes, not hype',
         ],
       },
     ],
   },
   {
     slug: 'services',
-    title: 'Services',
-    intro: 'Core service domains designed to accelerate modernization and business growth.',
+    title: 'Capabilities',
+    intro: 'Kreatazz capabilities are designed to help enterprises operationalize intelligence and create durable execution capability.',
     sections: [
       {
-        heading: 'AI/ML Solutions',
-        body: ['Drive digital transformation using advanced AI and ML capabilities.'],
+        heading: 'Operational Intelligence Strategy',
+        body: ['Identify where intelligence can improve decisions, workflows, knowledge access, and operational performance.'],
       },
       {
-        heading: 'Cloud Migration',
-        body: ['Seamlessly transfer applications and data for agility, scalability, and reliability.'],
+        heading: 'AI & Data Platforms',
+        body: ['Build data foundations, model-ready pipelines, knowledge retrieval systems, and decision intelligence layers for real operational use.'],
       },
       {
-        heading: 'Mobile and Web Application Development',
-        body: ['Build engaging, user-centric digital products with robust engineering practices.'],
+        heading: 'Workflow Intelligence',
+        body: ['Move beyond automation into adaptive workflows that learn, provide context, and support better execution.'],
       },
       {
-        heading: 'Staffing Solutions',
-        body: ['Secure high-impact talent to meet delivery demands and long-term hiring goals.'],
+        heading: 'Product Engineering',
+        body: ['Build web, mobile, and platform products with clean architecture, maintainable code, and practical release velocity.'],
+      },
+      {
+        heading: 'Cloud, DevOps & Automation',
+        body: ['Create reliable deployment, observability, and automation foundations for production-ready intelligent systems.'],
+      },
+      {
+        heading: 'Talent and Workforce Support',
+        body: ['Preserved from the old website: staffing and executive search support for organizations that need specialized technology talent.'],
       },
     ],
   },
@@ -63,146 +71,212 @@ export const legacyPages = [
     slug: 'solutions',
     title: 'Solutions',
     intro:
-      'Industry-focused solution tracks built to improve delivery velocity, operational clarity, and measurable business outcomes.',
+      'Industry-focused solution tracks built around operational intelligence, workflow maturity, knowledge accessibility, and measurable execution outcomes.',
     sections: [
       {
-        heading: 'Healthcare & Care Operations',
+        heading: 'Manufacturing Intelligence',
         body: [
-          'Design of compliant data flows, care operations dashboards, and workflow visibility systems for clinical and administrative teams.',
+          'Production visibility, maintenance intelligence, quality operations, and manufacturing knowledge networks for industrial teams.',
         ],
+        list: ['Production intelligence', 'Quality visibility', 'Maintenance intelligence', 'Operational reporting'],
+      },
+      {
+        heading: 'Engineering Intelligence',
+        body: [
+          'Impact analysis, technical knowledge systems, requirements intelligence, and engineering collaboration models.',
+        ],
+        list: ['Impact analysis', 'Requirements intelligence', 'Design collaboration', 'Technical knowledge systems'],
+      },
+      {
+        heading: 'Workforce Intelligence',
+        body: [
+          'Skills mapping, workforce planning, resource optimization, and capability visibility for execution-focused teams.',
+        ],
+        list: ['Skills ecosystems', 'Capability mapping', 'Resource optimization', 'Talent visibility'],
+      },
+      {
+        heading: 'Healthcare, Real Estate, and Enterprise Operations',
+        body: [
+          'Existing Kreatazz domains continue as focused solution areas where workflow intelligence and data-enabled decision support can create business value.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'manufacturing-intelligence',
+    title: 'Manufacturing Intelligence',
+    intro:
+      'Operational intelligence for production environments, quality teams, maintenance operations, and manufacturing leadership.',
+    sections: [
+      {
+        heading: 'What We Enable',
         list: [
-          'Care pathway workflow automation',
-          'Structured healthcare data integration',
-          'Operations visibility and reporting',
+          'Production intelligence and operational reporting',
+          'Maintenance intelligence and predictive signals',
+          'Quality visibility and exception workflows',
+          'Shop-floor knowledge networks',
+          'Decision dashboards for supervisors and leaders',
         ],
       },
       {
-        heading: 'Real Estate & Buyer Experience',
-        body: [
-          'Personalized buyer journey systems and decision support tooling that help teams improve conversion confidence.',
-        ],
+        heading: 'Design Principle',
+        body: ['Avoid robot-first narratives. The website and solution should show people running intelligent operations with AI quietly supporting better decisions.'],
+      },
+    ],
+  },
+  {
+    slug: 'engineering-intelligence',
+    title: 'Engineering Intelligence',
+    intro:
+      'Intelligent workflows for engineering organizations where knowledge, change impact, requirements, and design context matter.',
+    sections: [
+      {
+        heading: 'What We Enable',
         list: [
-          'Buyer preference capture and matching',
-          'Interactive comparison and shortlisting tools',
-          'Conversion-focused CRM workflow extensions',
+          'Engineering impact analysis',
+          'Requirements intelligence',
+          'Design collaboration and review support',
+          'Technical knowledge systems',
+          'Decision support for knowledge-intensive work',
         ],
       },
       {
-        heading: 'Enterprise Workflow Modernization',
-        body: [
-          'Cross-functional workflow modernization to reduce bottlenecks, improve handoffs, and create accountable execution paths.',
-        ],
+        heading: 'Design Principle',
+        body: ['Engineering intelligence should feel like systems thinking and technical excellence, not generic AI automation.'],
+      },
+    ],
+  },
+  {
+    slug: 'workforce-intelligence',
+    title: 'Workforce Intelligence',
+    intro:
+      'Capability visibility and workforce operating systems that help organizations understand, deploy, and scale human expertise.',
+    sections: [
+      {
+        heading: 'What We Enable',
         list: [
-          'Process digitization and orchestration',
-          'Department-to-department workflow integration',
-          'KPI visibility and operational governance',
+          'Skills mapping and capability graphs',
+          'Workforce planning and resource allocation',
+          'Productivity intelligence',
+          'Talent visibility across teams',
+          'Human-centered adoption and governance',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'enterprise-function-intelligence',
+    title: 'Enterprise Function Intelligence',
+    intro:
+      'Connected intelligence across sales, finance, procurement, operations, customer experience, and project delivery.',
+    sections: [
+      {
+        heading: 'What We Enable',
+        list: [
+          'Sales operations intelligence',
+          'Procurement and finance workflow intelligence',
+          'Project delivery visibility',
+          'Customer experience knowledge systems',
+          'Enterprise knowledge management',
         ],
       },
     ],
   },
   {
     slug: 'ai-ml-solutions',
-    title: 'AI/ML Solutions',
+    title: 'AI & Data Platforms',
     intro:
-      'Explore AI and ML services designed to unlock business value through automation, prediction, and intelligent decision support.',
+      'AI and ML capabilities reframed as operational intelligence building blocks: data foundations, knowledge systems, decision support, model deployment, and human-centered adoption.',
     sections: [
       {
-        heading: 'Model Development',
+        heading: 'Model and Agent Deployment',
         list: [
-          'Custom Model Building',
-          'Pre-trained Model Fine-tuning',
-          'Model Deployment',
-          'Model Optimization',
+          'Custom model integration',
+          'Pre-trained model fine-tuning',
+          'Agent and copilot deployment',
+          'Model governance and optimization',
         ],
       },
       {
-        heading: 'Data Analysis',
+        heading: 'Data and Knowledge Foundations',
         list: [
-          'Data Preprocessing',
-          'Feature Engineering',
-          'Exploratory Data Analysis (EDA)',
-          'Predictive Analytics',
+          'Data preprocessing and normalization',
+          'Feature engineering and exploratory analysis',
+          'Knowledge retrieval and RAG patterns',
+          'Predictive analytics and decision intelligence',
         ],
       },
       {
-        heading: 'Consulting Services',
+        heading: 'Operational Intelligence Advisory',
         list: [
-          'AI Strategy Development',
-          'AI Readiness Assessment',
-          'Model Evaluation and Interpretation',
-          'AI for Process Automation',
+          'Operational intelligence strategy',
+          'Operational maturity assessment',
+          'AI opportunity prioritization',
+          'AI for workflow intelligence and decision support',
         ],
       },
       {
-        heading: 'AIML Application Integrations',
+        heading: 'Application Integrations',
         list: [
-          'Chatbots and Virtual Assistants',
-          'Sentiment Analysis',
-          'Anomaly Detection',
-          'Recommendation Systems',
+          'Chatbots and virtual assistants',
+          'Sentiment and text analytics',
+          'Anomaly detection',
+          'Recommendation systems',
         ],
       },
     ],
   },
   {
     slug: 'cloud-migration',
-    title: 'Cloud Migration',
-    intro: 'Cloud migration and optimization services that modernize infrastructure with low disruption.',
+    title: 'Cloud, DevOps & Automation',
+    intro: 'Cloud migration and optimization services that provide reliable infrastructure for intelligent operating systems.',
     sections: [
       {
         heading: 'Cloud Strategy and Consulting',
-        list: ['Cloud Readiness Assessment', 'Cloud Adoption Roadmap', 'Cloud Architecture Design'],
+        list: ['Cloud readiness assessment', 'Cloud adoption roadmap', 'Cloud architecture design'],
       },
       {
         heading: 'Cloud Migration Services',
-        list: ['Lift and Shift Migration', 'Re-platforming', 'Re-architecting'],
+        list: ['Lift-and-shift migration', 'Re-platforming', 'Re-architecting'],
       },
       {
         heading: 'Cloud Integration Services',
-        list: ['Hybrid Cloud Integration', 'Multi-Cloud Strategy', 'Data Synchronization'],
+        list: ['Hybrid cloud integration', 'Multi-cloud strategy', 'Data synchronization'],
       },
       {
         heading: 'Cloud Optimization and Management',
-        list: ['Cost Optimization', 'Cloud Monitoring and Management', 'Security and Compliance'],
+        list: ['Cost optimization', 'Cloud monitoring and management', 'Security and compliance'],
       },
     ],
   },
   {
     slug: 'mobile-and-web-application-development',
-    title: 'Mobile and Web Application Development',
-    intro: 'Application engineering services that advance digital maturity with modern product delivery.',
+    title: 'Product Engineering',
+    intro: 'Application engineering services that turn business capability ideas into usable, scalable, maintainable digital products.',
     sections: [
       {
         heading: 'Mobile Application Development',
-        list: [
-          'Native Mobile App Development',
-          'Cross-Platform Mobile Development',
-          'Mobile App UI/UX Design',
-        ],
+        list: ['Native mobile app development', 'Cross-platform mobile development', 'Mobile app UI/UX design'],
       },
       {
         heading: 'Web Application Development',
-        list: [
-          'Custom Web App Development',
-          'Progressive Web Apps (PWA)',
-          'E-commerce Web Development',
-        ],
+        list: ['Custom web app development', 'Progressive web apps', 'E-commerce and workflow portals'],
       },
       {
-        heading: 'App Testing and QA Services',
-        list: ['Mobile and Web App Testing', 'Automated Testing', 'Usability Testing'],
+        heading: 'Testing and QA Services',
+        list: ['Mobile and web app testing', 'Automated testing', 'Usability testing'],
       },
       {
-        heading: 'App Maintenance and Support',
-        list: ['Ongoing App Maintenance', 'Feature Upgrades', 'Performance Optimization'],
+        heading: 'Maintenance and Support',
+        list: ['Ongoing maintenance', 'Feature upgrades', 'Performance optimization'],
       },
     ],
   },
   {
     slug: 'staffing-solutions',
-    title: 'Staffing Solutions',
+    title: 'Talent and Workforce Support',
     intro:
-      'Human resources and executive search services to help organizations identify, attract, and retain top technology talent.',
+      'Preserved from the existing website: human resources and executive search services to help organizations identify, attract, and retain technology talent.',
     sections: [
       {
         heading: 'Permanent Recruitment',
@@ -213,7 +287,7 @@ export const legacyPages = [
       {
         heading: 'Contract Staffing',
         body: [
-          'Flexible staffing models for seasonal demand, delivery surges, and specialized project requirements.',
+          'Flexible staffing models for delivery surges, specialized programs, and seasonal demand.',
         ],
       },
       {
@@ -238,7 +312,7 @@ export const legacyPages = [
     slug: 'healthcare-care-operations',
     title: 'Healthcare & Care Operations',
     intro:
-      'Operational and data systems that support care delivery teams with compliant workflows and clear visibility.',
+      'Operational and data systems that support care delivery teams with compliant workflows, structured data, and clear execution visibility.',
     sections: [
       {
         heading: 'Workflow Reliability',
@@ -300,15 +374,15 @@ export const legacyPages = [
   },
   {
     slug: 'enterprise-workflow-modernization',
-    title: 'Enterprise Workflow Modernization',
+    title: 'Enterprise Workflow Intelligence',
     intro:
-      'Automation-first systems that connect teams, remove repetitive effort, and improve end-to-end execution speed.',
+      'Systems that connect teams, reduce repetitive effort, and improve end-to-end execution speed through workflow intelligence.',
     sections: [
       {
         heading: 'Process Orchestration',
         list: [
-          'Workflow discovery and bottleneck analysis',
-          'Rule-based automation design',
+          'Workflow discovery and intelligence opportunity analysis',
+          'Rule-based and AI-supported workflow design',
           'Cross-system trigger and event integration',
         ],
       },
@@ -340,6 +414,10 @@ const legacyPageAliases = {
   'mobile-web-app-development': 'mobile-and-web-application-development',
   'staffing-solution': 'staffing-solutions',
   'outsourcing-staffing': 'staffing-solutions',
+  'manufacturing': 'manufacturing-intelligence',
+  'engineering': 'engineering-intelligence',
+  'workforce-operations': 'workforce-intelligence',
+  'enterprise-functions': 'enterprise-function-intelligence',
 }
 
 const legacyEntries = legacyPages.map((page) => [page.slug, page])
