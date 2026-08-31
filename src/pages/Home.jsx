@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import CTASection from '../components/CTASection'
 import Hero from '../components/Hero'
 import SectionTitle from '../components/SectionTitle'
@@ -18,6 +19,12 @@ function Home({ content, blogPosts }) {
       event.preventDefault()
       navigateTo(href)
     }
+
+    const featuredBlogPosts = useMemo(() => {
+      return [...blogPosts]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 6)
+    }, [blogPosts])
 
   return (
     <main id="home">
@@ -251,7 +258,7 @@ function Home({ content, blogPosts }) {
             intro={content.blog.intro}
           />
           <div className="blog-grid">
-            {blogPosts.map((post) => (
+            {featuredBlogPosts.map((post) => (
               <article key={post.slug} className="blog-card">
                 <figure className="blog-visual" aria-hidden="true">
                   <img src={post.featuredImage} alt="" loading="lazy" />
@@ -265,6 +272,15 @@ function Home({ content, blogPosts }) {
                 <p>{post.excerpt}</p>
               </article>
             ))}
+          </div>
+          <div className="home-blog-actions">
+            <a
+              className="btn btn-secondary"
+              href="/blog/"
+              onClick={(event) => handleInternalPageClick(event, '/blog/')}
+            >
+              View All Articles
+            </a>
           </div>
         </div>
       </section>

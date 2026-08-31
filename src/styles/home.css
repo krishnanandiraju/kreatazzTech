@@ -548,6 +548,12 @@ main {
   color: var(--kz-muted);
 }
 
+.home-blog-actions {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .content-page {
   padding-top: 5.2rem;
   min-height: 72svh;
