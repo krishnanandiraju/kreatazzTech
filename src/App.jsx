@@ -5,6 +5,7 @@ import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
 import IndustriesPage from './pages/IndustriesPage'
 import LegacyPage from './pages/LegacyPage'
+import SolutionsPage from './pages/SolutionsPage'
 import { blogPosts, blogPostBySlug } from './data/blogPosts'
 import { legacyPageBySlug } from './data/legacyPages'
 import { siteContent } from './data/siteContent'
@@ -32,11 +33,27 @@ function getRoute(pathname) {
     return { type: 'industries' }
   }
 
+  if (normalized === '/solutions') {
+    return { type: 'solutions' }
+  }
+
   if (normalized.startsWith('/blog/')) {
     return { type: 'blog-post', slug: normalized.replace('/blog/', '') }
   }
 
   return { type: 'legacy-page', slug: normalized.replace(/^\//, '') }
+}
+
+function toAbsoluteUrl(href) {
+  if (!href) {
+    return window.location.origin
+  }
+
+  if (href.startsWith('http://') || href.startsWith('https://')) {
+    return href
+  }
+
+  return `${window.location.origin}${href}`
 }
 
 function App() {
@@ -97,6 +114,13 @@ function App() {
       ]
     }
 
+    if (route.type === 'solutions') {
+      return [
+        { label: 'Home', href: '/' },
+        { label: 'Solutions' },
+      ]
+    }
+
     if (route.type === 'legacy-page') {
       const page = legacyPageBySlug[route.slug]
       return [
@@ -107,6 +131,41 @@ function App() {
 
     return []
   }, [route])
+
+  useEffect(() => {
+    const schemaScriptId = 'kz-breadcrumb-schema'
+    const existingScript = document.getElementById(schemaScriptId)
+
+    if (existingScript) {
+      existingScript.remove()
+    }
+
+    const trail = breadcrumbs.length ? breadcrumbs : [{ label: 'Home', href: '/' }]
+    const currentUrl = toAbsoluteUrl(window.location.pathname + window.location.search)
+
+    const itemListElement = trail.map((item, index) => {
+      const isLast = index === trail.length - 1
+      const itemUrl = !isLast && item.href ? toAbsoluteUrl(item.href) : currentUrl
+
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.label,
+        item: itemUrl,
+      }
+    })
+
+    const script = document.createElement('script')
+    script.id = schemaScriptId
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement,
+    })
+
+    document.head.appendChild(script)
+  }, [breadcrumbs, pathname])
 
   const navItems = useMemo(() => {
     if (route.type === 'home') {
@@ -135,6 +194,8 @@ function App() {
       {route.type === 'blog-post' ? <BlogPostPage post={blogPostBySlug[route.slug]} breadcrumbs={breadcrumbs} /> : null}
 
       {route.type === 'industries' ? <IndustriesPage items={siteContent.industries.items} breadcrumbs={breadcrumbs} /> : null}
+
+      {route.type === 'solutions' ? <SolutionsPage items={siteContent.services.items} breadcrumbs={breadcrumbs} /> : null}
 
       {route.type === 'legacy-page' ? <LegacyPage page={legacyPageBySlug[route.slug]} breadcrumbs={breadcrumbs} /> : null}
 

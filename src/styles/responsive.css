@@ -26,6 +26,10 @@
   .industry-landing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .solution-landing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 900px) {
@@ -55,6 +59,10 @@
 
   .wizard-grid {
     grid-template-columns: 1fr 1fr 0.9fr;
+  }
+
+  .solution-landing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -100,6 +108,10 @@
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .sticky-subnav {
+    top: 68px;
   }
 }
 

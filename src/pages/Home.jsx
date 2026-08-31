@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import PathWizard from '../components/PathWizard'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
+import StickySubNav from '../components/StickySubNav'
 import { navigateTo } from '../utils/navigation'
 
 function Home({ content, blogPosts }) {
@@ -27,9 +28,22 @@ function Home({ content, blogPosts }) {
         .slice(0, 6)
     }, [blogPosts])
 
+    const subNavItems = useMemo(
+      () => [
+        { label: 'Deployment', href: '#deployment-layer' },
+        { label: 'Model', href: '#operating-model' },
+        { label: 'Industries', href: '#industries' },
+        { label: 'Capabilities', href: '#capabilities' },
+        { label: 'Blog', href: '#blog' },
+        { label: 'Contact', href: '#contact-us' },
+      ],
+      [],
+    )
+
   return (
     <main id="home">
       <Hero content={content.hero} />
+      <StickySubNav items={subNavItems} />
       <PathWizard />
 
       <section id="deployment-layer" className="section deployment-layer" aria-labelledby="deployment-layer-title">
