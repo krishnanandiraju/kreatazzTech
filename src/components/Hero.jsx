@@ -1,12 +1,38 @@
 import { trackCTAClick } from '../utils/analytics'
 
 function Hero({ content }) {
-  const handlePrimaryCtaClick = () => {
-    trackCTAClick(content.primaryCta.label, 'hero', content.primaryCta.href)
+  const resolveInternalHref = (href) => {
+    if (!href) {
+      return href
+    }
+
+    if (href.startsWith('#')) {
+      return `/${href}`
+    }
+
+    return href
   }
 
-  const handleSecondaryCtaClick = () => {
-    trackCTAClick(content.secondaryCta.label, 'hero', content.secondaryCta.href)
+  const handlePrimaryCtaClick = (event) => {
+    const resolvedHref = resolveInternalHref(content.primaryCta.href)
+    trackCTAClick(content.primaryCta.label, 'hero', resolvedHref)
+
+    if (resolvedHref?.startsWith('/')) {
+      event.preventDefault()
+      window.history.pushState({}, '', resolvedHref)
+      window.dispatchEvent(new Event('locationchange'))
+    }
+  }
+
+  const handleSecondaryCtaClick = (event) => {
+    const resolvedHref = resolveInternalHref(content.secondaryCta.href)
+    trackCTAClick(content.secondaryCta.label, 'hero', resolvedHref)
+
+    if (resolvedHref?.startsWith('/')) {
+      event.preventDefault()
+      window.history.pushState({}, '', resolvedHref)
+      window.dispatchEvent(new Event('locationchange'))
+    }
   }
 
   return (

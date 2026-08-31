@@ -10,6 +10,16 @@ function Home({ content, blogPosts }) {
       window.dispatchEvent(new Event('locationchange'))
     }
 
+    const handleInternalPageClick = (event, href) => {
+      if (!href?.startsWith('/')) {
+        return
+      }
+
+      event.preventDefault()
+      window.history.pushState({}, '', href)
+      window.dispatchEvent(new Event('locationchange'))
+    }
+
   return (
     <main id="home">
       <Hero content={content.hero} />
@@ -144,12 +154,12 @@ function Home({ content, blogPosts }) {
             {content.industries.items.map((item) => (
               <article key={item.title} className="solution-card industry-card">
                 <h3>
-                  <a className="content-link" href={item.href}>
+                  <a className="content-link" href={item.href} onClick={(event) => handleInternalPageClick(event, item.href)}>
                     {item.title}
                   </a>
                 </h3>
                 <p>{item.description}</p>
-                <a className="content-link solution-read-more" href={item.href}>
+                <a className="content-link solution-read-more" href={item.href} onClick={(event) => handleInternalPageClick(event, item.href)}>
                   Learn more
                 </a>
               </article>

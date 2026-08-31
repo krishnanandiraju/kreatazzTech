@@ -1,11 +1,17 @@
 function LegacyPage({ page }) {
+  const handleBackHomeClick = (event) => {
+    event.preventDefault()
+    window.history.pushState({}, '', '/')
+    window.dispatchEvent(new Event('locationchange'))
+  }
+
   if (!page) {
     return (
       <main className="section content-page">
         <div className="shell content-page-empty">
           <h1>Page not found</h1>
           <p>The requested legacy page is not available in this static build.</p>
-          <a className="btn btn-secondary" href="/">
+          <a className="btn btn-secondary" href="/" onClick={handleBackHomeClick}>
             Back Home
           </a>
         </div>
@@ -16,7 +22,7 @@ function LegacyPage({ page }) {
   return (
     <main className="section content-page" id={`legacy-${page.slug}`}>
       <div className="shell content-page-narrow">
-        <a className="content-link back-link" href="/">
+        <a className="content-link back-link" href="/" onClick={handleBackHomeClick}>
           Back Home
         </a>
         <article className="legacy-page">

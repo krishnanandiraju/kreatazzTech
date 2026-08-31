@@ -1,9 +1,17 @@
 import { trackServiceInteraction } from '../utils/analytics'
 
 function ServiceCard({ title, description, image, href }) {
-  const handleServiceClick = () => {
-    if (href) {
-      trackServiceInteraction(title, 'click')
+  const handleServiceClick = (event) => {
+    if (!href) {
+      return
+    }
+
+    trackServiceInteraction(title, 'click')
+
+    if (href.startsWith('/')) {
+      event.preventDefault()
+      window.history.pushState({}, '', href)
+      window.dispatchEvent(new Event('locationchange'))
     }
   }
 

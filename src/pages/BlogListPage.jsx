@@ -1,31 +1,66 @@
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { trackBlogInteraction, trackBlogSearch, trackBlogFilter } from '../utils/analytics'
 import { formatBlogDate } from '../utils/blog'
 import Newsletter from '../components/Newsletter'
 import { blogCategories } from '../data/blogPosts'
 
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+}
+
 function BlogListPage({ posts }) {
   const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedTagSlug, setSelectedTagSlug] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
+
+  useEffect(() => {
+    const syncStateFromUrl = () => {
+      const params = new URLSearchParams(window.location.search)
+      const tag = params.get('tag')
+      setSelectedTagSlug(tag ? tag.toLowerCase() : null)
+    }
+
+    syncStateFromUrl()
+    window.addEventListener('popstate', syncStateFromUrl)
+    window.addEventListener('locationchange', syncStateFromUrl)
+
+    return () => {
+      window.removeEventListener('popstate', syncStateFromUrl)
+      window.removeEventListener('locationchange', syncStateFromUrl)
+    }
+  }, [])
 
   const filteredPosts = useMemo(() => {
     return posts.filter(post => {
       const matchesCategory = !selectedCategory || post.category === selectedCategory
+      const matchesTag =
+        !selectedTagSlug ||
+        (post.tags && post.tags.some((tag) => slugify(tag) === selectedTagSlug))
       const matchesSearch = !searchQuery || 
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())))
-      return matchesCategory && matchesSearch
+      return matchesCategory && matchesTag && matchesSearch
     })
-  }, [posts, selectedCategory, searchQuery])
+  }, [posts, searchQuery, selectedCategory, selectedTagSlug])
 
-  const handleBlogPostClick = (postTitle, postSlug) => {
+  const handleBlogPostClick = (event, postTitle, postSlug) => {
+    event.preventDefault()
     trackBlogInteraction(postTitle, postSlug, 'click_from_list')
+    window.history.pushState({}, '', `/blog/${postSlug}/`)
+    window.dispatchEvent(new Event('locationchange'))
   }
 
   const handleCategoryFilter = (category) => {
     const newCategory = selectedCategory === category ? null : category
     setSelectedCategory(newCategory)
+    setSelectedTagSlug(null)
+    window.history.pushState({}, '', '/blog/')
+    window.dispatchEvent(new Event('locationchange'))
     
     // Track filter
     if (newCategory) {
@@ -88,6 +123,22 @@ function BlogListPage({ posts }) {
           )}
         </div>
 
+        {selectedTagSlug ? (
+          <div className="blog-active-tag">
+            <p>Filtering by tag: #{selectedTagSlug.replace(/-/g, ' ')}</p>
+            <button
+              className="btn btn-secondary"
+              onClick={() => {
+                setSelectedTagSlug(null)
+                window.history.pushState({}, '', '/blog/')
+                window.dispatchEvent(new Event('locationchange'))
+              }}
+            >
+              Clear Tag
+            </button>
+          </div>
+        ) : null}
+
         {filteredPosts.length === 0 ? (
           <div className="blog-empty">
             <p>No articles found matching your search or filter.</p>
@@ -96,6 +147,9 @@ function BlogListPage({ posts }) {
               onClick={() => {
                 setSearchQuery('')
                 setSelectedCategory(null)
+                setSelectedTagSlug(null)
+                window.history.pushState({}, '', '/blog/')
+                window.dispatchEvent(new Event('locationchange'))
               }}
             >
               Clear Filters
@@ -108,7 +162,7 @@ function BlogListPage({ posts }) {
                 <a
                   href={`/blog/${post.slug}/`}
                   className="blog-card-link"
-                  onClick={() => handleBlogPostClick(post.title, post.slug)}
+                  onClick={(event) => handleBlogPostClick(event, post.title, post.slug)}
                 >
                   <figure className="blog-visual" aria-hidden="true">
                     <img src={post.featuredImage} alt="" loading="lazy" />

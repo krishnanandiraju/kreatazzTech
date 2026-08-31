@@ -23,7 +23,7 @@ function BlogPostPage({ post }) {
     event.preventDefault()
     const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
     trackBlogInteraction(`Filter: ${tag}`, tagSlug, 'tag_click')
-    window.history.pushState({}, '', `/blog/?tag=${tagSlug}`)
+    window.history.pushState({}, '', `/blog/?tag=${encodeURIComponent(tagSlug)}`)
     window.dispatchEvent(new Event('locationchange'))
   }
 
@@ -33,7 +33,7 @@ function BlogPostPage({ post }) {
         <div className="shell content-page-empty">
           <h1>Post not found</h1>
           <p>The requested article is not available in this static build.</p>
-          <a className="btn btn-secondary" href="/blog/">
+          <a className="btn btn-secondary" href="/blog/" onClick={handleBackClick}>
             Back to Blog
           </a>
         </div>

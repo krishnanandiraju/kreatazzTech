@@ -11,12 +11,31 @@ function CTASection({
   phone,
   location,
 }) {
+  const resolveInternalHref = (href) => {
+    if (!href) {
+      return href
+    }
+
+    if (href.startsWith('#')) {
+      return `/${href}`
+    }
+
+    return href
+  }
+
   const handleEmailClick = () => {
     trackFormSubmission('contact_email', email)
   }
 
-  const handleSecondaryCtaClick = () => {
-    trackCTAClick(secondaryCtaLabel, 'cta-section', secondaryCtaHref)
+  const handleSecondaryCtaClick = (event) => {
+    const resolvedHref = resolveInternalHref(secondaryCtaHref)
+    trackCTAClick(secondaryCtaLabel, 'cta-section', resolvedHref)
+
+    if (resolvedHref?.startsWith('/')) {
+      event.preventDefault()
+      window.history.pushState({}, '', resolvedHref)
+      window.dispatchEvent(new Event('locationchange'))
+    }
   }
 
   return (
