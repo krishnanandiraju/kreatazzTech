@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { trackNavigation } from '../utils/analytics'
+import { navigateTo } from '../utils/navigation'
 
 function Header({ companyName, brandShort, logoMark, nav }) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -12,8 +13,7 @@ function Header({ companyName, brandShort, logoMark, nav }) {
     event.preventDefault()
     const currentPage = window.location.pathname
     trackNavigation(currentPage, href)
-    window.history.pushState({}, '', href)
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo(href)
   }
 
   const handleNavClick = () => {

@@ -1,5 +1,6 @@
 import { trackBlogInteraction } from '../utils/analytics'
 import { formatBlogDate } from '../utils/blog'
+import { navigateTo } from '../utils/navigation'
 
 function RelatedPosts({ posts }) {
   if (!posts || posts.length === 0) {
@@ -9,8 +10,7 @@ function RelatedPosts({ posts }) {
   const handleRelatedPostClick = (event, postTitle, postSlug) => {
     event.preventDefault()
     trackBlogInteraction(postTitle, postSlug, 'click_related')
-    window.history.pushState({}, '', `/blog/${postSlug}/`)
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo(`/blog/${postSlug}/`)
   }
 
   return (

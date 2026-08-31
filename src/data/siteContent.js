@@ -20,30 +20,30 @@ export const siteContent = {
   ],
   hero: {
     eyebrow: 'Operational Intelligence Company',
-    headline: 'Where Frontier AI Becomes Enterprise Execution',
+    headline: 'We Help Teams Turn AI Into Everyday Execution',
     subheadline:
-      'Kreatazz transforms advanced AI capabilities into operational intelligence for modern enterprises.',
+      'Kreatazz works with enterprise teams to move AI from isolated pilots into daily operations that people can trust and use.',
     proofLine:
-      'We bring together people, knowledge, systems, workflows, and AI to create intelligent execution environments that help organizations move with greater clarity, speed, and confidence.',
+      'We connect people, process, systems, and data so decisions are faster, workflows are clearer, and execution is more reliable.',
     supportingCopy:
-      'Our role is to make intelligence operational - embedded into decisions, workflows, and the daily rhythm of enterprise execution.',
-    closingLine: 'Operational Intelligence. Enterprise Scale. Human-Centered AI.',
+      'Our role is practical: design the workflows, data foundations, and governance needed to make intelligence useful in real work.',
+    closingLine: 'Operational Intelligence, built for real teams and real constraints.',
     primaryCta: { label: 'Build Operational Intelligence', href: '#contact-us' },
     secondaryCta: { label: 'Explore the Deployment Layer', href: '#deployment-layer' },
     image: '/operational-intelligence/enterprise-nervous-system.svg',
   },
   belief: {
     kicker: 'Category perspective',
-    title: 'Frontier AI creates capability. Enterprise execution creates advantage.',
+    title: 'AI only matters when execution actually improves.',
     intro:
-      'Kreatazz helps organizations move beyond isolated AI usage by embedding intelligence into operating systems, execution workflows, decision systems, and institutional knowledge.',
-    quote: 'Kreatazz is the deployment layer between frontier AI capabilities and enterprise execution.',
+      'Many companies have promising AI experiments, but the value gets lost before it reaches frontline teams. We close that gap by designing systems people can adopt in daily work.',
+    quote: 'Our job is to make AI useful where decisions are made, not just where demos are shown.',
   },
   deploymentLayer: {
     kicker: 'The Kreatazz Deployment Layer',
-    title: 'The category-defining bridge between frontier AI and enterprise execution.',
+    title: 'The bridge between AI capability and day-to-day business execution.',
     intro:
-      'Frontier AI capabilities are advancing rapidly. Enterprises need a reliable way to translate those capabilities into practical execution across people, processes, systems, and decisions. Kreatazz operates as the deployment layer that turns emerging intelligence into operational capability.',
+      'AI capabilities are moving fast, but enterprise operations move through people, systems, controls, and deadlines. We help organizations translate AI potential into practical execution across those realities.',
     visual: '/operational-intelligence/deployment-layer.svg',
     layers: [
       {
@@ -64,7 +64,7 @@ export const siteContent = {
     kicker: 'Outcomes',
     title: 'What Operational Intelligence Unlocks',
     intro:
-      'Operational Intelligence creates durable enterprise capability by improving how decisions are made, work is coordinated, and expertise is scaled across the business.',
+      'Operational Intelligence creates measurable business value by improving decision quality, coordination, and execution speed across teams.',
     items: [
       {
         title: 'Faster Decision Context',
@@ -96,7 +96,7 @@ export const siteContent = {
     kicker: 'Execution model',
     title: 'How Kreatazz Operationalizes Intelligence',
     intro:
-      'Kreatazz builds execution capability by connecting human expertise, enterprise systems, knowledge environments, and frontier AI into one operating architecture.',
+      'We combine domain expertise, workflow design, and engineering delivery so intelligence can be used consistently across real operating environments.',
     steps: [
       {
         title: 'Discover Intelligence Opportunities',
@@ -177,7 +177,7 @@ export const siteContent = {
     kicker: 'Proprietary framework',
     title: 'The Enterprise Intelligence Stack',
     intro:
-      'Operational Intelligence is not created by deploying isolated AI tools. It emerges when intelligence is embedded across the full enterprise stack from data and systems to knowledge, workflows, decisions, and strategy. Kreatazz helps organizations connect these layers into an intelligent execution environment.',
+      'Operational Intelligence does not come from one tool. It comes from connecting data, systems, knowledge, workflows, and decisions so teams can execute with context at every layer.',
     layers: ['Strategy', 'Decisions', 'Workflows', 'Knowledge', 'Systems', 'Data'],
     spanLine: 'AI spans every layer. Kreatazz orchestrates the stack into operational execution.',
   },
@@ -185,7 +185,7 @@ export const siteContent = {
     kicker: 'Industry focus',
     title: 'Operational Intelligence for enterprise operating environments.',
     intro:
-      'Kreatazz brings intelligence infrastructure into environments where execution quality, coordination, and reliability define business performance.',
+      'We focus on industries where operational quality, coordination, and reliability directly impact growth, risk, and customer trust.',
     items: [
       {
         title: 'Intelligent Manufacturing Operations',
@@ -217,7 +217,7 @@ export const siteContent = {
     kicker: 'Capabilities',
     title: 'Enterprise capabilities for deployment and execution.',
     intro:
-      'Kreatazz combines operational intelligence architecture with disciplined engineering to transform frontier AI capability into enterprise execution capability.',
+      'Our services combine strategy, architecture, and engineering delivery so teams can move from idea to production with confidence.',
     items: [
       {
         title: 'AI & Data Platforms',
@@ -267,7 +267,7 @@ export const siteContent = {
     kicker: 'Products',
     title: 'Product portfolio and internal platforms.',
     intro:
-      'Kreatazz builds focused software products alongside client delivery. These remain part of the company story, while the main website positioning now leads with Operational Intelligence.',
+      'Alongside client delivery, we build focused internal products that reflect how we think about execution, workflow, and operational visibility.',
     items: [
       {
         name: 'PeopleOS HRMS',
@@ -286,7 +286,7 @@ export const siteContent = {
     kicker: 'Differentiation',
     title: 'Where Frontier AI Meets Enterprise Reality',
     intro:
-      'The value of AI is realized when intelligence becomes part of enterprise execution. Kreatazz combines operational understanding, workflow intelligence, enterprise systems thinking, and AI deployment capability to convert emerging AI capabilities into measurable execution advantage. We do not treat AI as a standalone toolset. We design it into the operating fabric of the enterprise.',
+      'What sets us apart is execution depth. We do not treat AI as a standalone toolset. We design it into workflows, systems, and decisions so teams can use it consistently and measure real outcomes.',
     points: [
       'Operational Intelligence Architecture',
       'Human-Centered AI Design',
@@ -300,12 +300,12 @@ export const siteContent = {
     kicker: 'Insights',
     title: 'Thinking for technology and operations leaders.',
     intro:
-      'Existing blog content is preserved while the next publishing cycle can align to Operational Intelligence, workflow intelligence, and execution capability.',
+      'We share practical lessons from delivery: what works, what fails, and how teams can build stronger operating systems with data and AI.',
   },
   contact: {
     title: 'Build Your Operational Intelligence Advantage',
     text:
-      'Kreatazz helps enterprises transform AI capability into execution capability through intelligent workflows, knowledge systems, decision support, and scalable operating models. From frontier AI to enterprise execution.',
+      'If you are planning an AI, data, or workflow transformation program, we can help you define scope, reduce risk, and deliver outcomes your teams can sustain.',
     ctaLabel: 'Start a Strategy Conversation',
     secondaryCtaLabel: 'Explore Operational Intelligence',
     secondaryCtaHref: '#operational-intelligence',

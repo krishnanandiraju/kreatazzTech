@@ -1,8 +1,9 @@
+import { navigateTo } from '../utils/navigation'
+
 function LegacyPage({ page }) {
   const handleBackHomeClick = (event) => {
     event.preventDefault()
-    window.history.pushState({}, '', '/')
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo('/')
   }
 
   if (!page) {

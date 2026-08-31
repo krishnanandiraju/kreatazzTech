@@ -1,4 +1,5 @@
 import { trackServiceInteraction } from '../utils/analytics'
+import { navigateTo } from '../utils/navigation'
 
 function ServiceCard({ title, description, image, href }) {
   const handleServiceClick = (event) => {
@@ -10,8 +11,7 @@ function ServiceCard({ title, description, image, href }) {
 
     if (href.startsWith('/')) {
       event.preventDefault()
-      window.history.pushState({}, '', href)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(href)
     }
   }
 

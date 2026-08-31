@@ -1,4 +1,5 @@
 import { trackFormSubmission, trackCTAClick } from '../utils/analytics'
+import { navigateTo, resolveInternalHref } from '../utils/navigation'
 
 function CTASection({
   id,
@@ -11,18 +12,6 @@ function CTASection({
   phone,
   location,
 }) {
-  const resolveInternalHref = (href) => {
-    if (!href) {
-      return href
-    }
-
-    if (href.startsWith('#')) {
-      return `/${href}`
-    }
-
-    return href
-  }
-
   const handleEmailClick = () => {
     trackFormSubmission('contact_email', email)
   }
@@ -33,8 +22,7 @@ function CTASection({
 
     if (resolvedHref?.startsWith('/')) {
       event.preventDefault()
-      window.history.pushState({}, '', resolvedHref)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(resolvedHref)
     }
   }
 

@@ -1,26 +1,14 @@
 import { trackCTAClick } from '../utils/analytics'
+import { navigateTo, resolveInternalHref } from '../utils/navigation'
 
 function Hero({ content }) {
-  const resolveInternalHref = (href) => {
-    if (!href) {
-      return href
-    }
-
-    if (href.startsWith('#')) {
-      return `/${href}`
-    }
-
-    return href
-  }
-
   const handlePrimaryCtaClick = (event) => {
     const resolvedHref = resolveInternalHref(content.primaryCta.href)
     trackCTAClick(content.primaryCta.label, 'hero', resolvedHref)
 
     if (resolvedHref?.startsWith('/')) {
       event.preventDefault()
-      window.history.pushState({}, '', resolvedHref)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(resolvedHref)
     }
   }
 
@@ -30,8 +18,7 @@ function Hero({ content }) {
 
     if (resolvedHref?.startsWith('/')) {
       event.preventDefault()
-      window.history.pushState({}, '', resolvedHref)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(resolvedHref)
     }
   }
 

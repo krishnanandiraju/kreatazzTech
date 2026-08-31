@@ -3,6 +3,7 @@ import { trackBlogInteraction, trackBlogSearch, trackBlogFilter } from '../utils
 import { formatBlogDate } from '../utils/blog'
 import Newsletter from '../components/Newsletter'
 import { blogCategories } from '../data/blogPosts'
+import { navigateTo } from '../utils/navigation'
 
 function slugify(value) {
   return value
@@ -51,16 +52,14 @@ function BlogListPage({ posts }) {
   const handleBlogPostClick = (event, postTitle, postSlug) => {
     event.preventDefault()
     trackBlogInteraction(postTitle, postSlug, 'click_from_list')
-    window.history.pushState({}, '', `/blog/${postSlug}/`)
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo(`/blog/${postSlug}/`)
   }
 
   const handleCategoryFilter = (category) => {
     const newCategory = selectedCategory === category ? null : category
     setSelectedCategory(newCategory)
     setSelectedTagSlug(null)
-    window.history.pushState({}, '', '/blog/')
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo('/blog/')
     
     // Track filter
     if (newCategory) {
@@ -130,8 +129,7 @@ function BlogListPage({ posts }) {
               className="btn btn-secondary"
               onClick={() => {
                 setSelectedTagSlug(null)
-                window.history.pushState({}, '', '/blog/')
-                window.dispatchEvent(new Event('locationchange'))
+                navigateTo('/blog/')
               }}
             >
               Clear Tag
@@ -148,8 +146,7 @@ function BlogListPage({ posts }) {
                 setSearchQuery('')
                 setSelectedCategory(null)
                 setSelectedTagSlug(null)
-                window.history.pushState({}, '', '/blog/')
-                window.dispatchEvent(new Event('locationchange'))
+                navigateTo('/blog/')
               }}
             >
               Clear Filters

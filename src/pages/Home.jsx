@@ -2,12 +2,12 @@ import CTASection from '../components/CTASection'
 import Hero from '../components/Hero'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
+import { navigateTo } from '../utils/navigation'
 
 function Home({ content, blogPosts }) {
     const handleBlogPostClick = (event, postSlug) => {
       event.preventDefault()
-      window.history.pushState({}, '', `/blog/${postSlug}/`)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(`/blog/${postSlug}/`)
     }
 
     const handleInternalPageClick = (event, href) => {
@@ -16,8 +16,7 @@ function Home({ content, blogPosts }) {
       }
 
       event.preventDefault()
-      window.history.pushState({}, '', href)
-      window.dispatchEvent(new Event('locationchange'))
+      navigateTo(href)
     }
 
   return (

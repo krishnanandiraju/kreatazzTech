@@ -4,6 +4,7 @@ import { formatBlogDate } from '../utils/blog'
 import RelatedPosts from '../components/RelatedPosts'
 import Newsletter from '../components/Newsletter'
 import { getRelatedPosts } from '../data/blogPosts'
+import { navigateTo } from '../utils/navigation'
 
 function BlogPostPage({ post }) {
   useEffect(() => {
@@ -15,16 +16,14 @@ function BlogPostPage({ post }) {
   const handleBackClick = (event) => {
     event.preventDefault()
     trackBlogInteraction('back_to_list', 'blog_list', 'click')
-    window.history.pushState({}, '', '/blog/')
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo('/blog/')
   }
 
   const handleTagClick = (event, tag) => {
     event.preventDefault()
     const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
     trackBlogInteraction(`Filter: ${tag}`, tagSlug, 'tag_click')
-    window.history.pushState({}, '', `/blog/?tag=${encodeURIComponent(tagSlug)}`)
-    window.dispatchEvent(new Event('locationchange'))
+    navigateTo(`/blog/?tag=${encodeURIComponent(tagSlug)}`)
   }
 
   if (!post) {
