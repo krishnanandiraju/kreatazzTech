@@ -1,3 +1,12 @@
 DirectoryIndex index.html
 Options -MultiViews
-RewriteEngine Off
+RewriteEngine On
+
+# Serve existing files and symlinks directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+
+# Route extensionless URLs (e.g. /blog/, /blog/post-slug/) to the SPA.
+RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{1,8}$
+RewriteRule ^ index.html [L]
