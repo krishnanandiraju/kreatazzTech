@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="title desc">
+  <title id="title">Enterprise Nervous System</title>
+  <desc id="desc">Conceptual illustration showing human expertise, knowledge, intelligence, workflows and outcomes connected as an enterprise nervous system.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1A30"/><stop offset="1" stop-color="#071018"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#008CFF"/><stop offset="1" stop-color="#39FF14"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="640" rx="34" fill="url(#bg)"/>
+  <g stroke="#24415F" opacity=".38">
+    <path d="M80 140h740M80 250h740M80 360h740M80 470h740"/>
+    <path d="M160 70v500M320 70v500M480 70v500M640 70v500"/>
+  </g>
+  <g fill="none" stroke="url(#g)" stroke-width="3" filter="url(#glow)" opacity=".9">
+    <path d="M160 315 C250 165 350 480 450 315 S650 150 740 315"/>
+    <path d="M160 315 C270 430 340 190 450 315 S635 485 740 315"/>
+    <path d="M450 120 V520"/>
+    <path d="M185 120 C310 230 590 230 715 120"/>
+    <path d="M185 520 C310 410 590 410 715 520"/>
+  </g>
+  <g font-family="Inter, Arial" text-anchor="middle">
+    <g transform="translate(450 315)">
+      <circle r="82" fill="#0D2539" stroke="url(#g)" stroke-width="3" filter="url(#glow)"/>
+      <text y="-8" fill="#fff" font-size="24" font-weight="800">Operational</text>
+      <text y="25" fill="#fff" font-size="24" font-weight="800">Intelligence</text>
+    </g>
+    <g fill="#0E1B31" stroke="#24415F">
+      <rect x="90" y="86" width="220" height="78" rx="18"/>
+      <rect x="590" y="86" width="220" height="78" rx="18"/>
+      <rect x="90" y="475" width="220" height="78" rx="18"/>
+      <rect x="590" y="475" width="220" height="78" rx="18"/>
+      <rect x="340" y="38" width="220" height="78" rx="18"/>
+      <rect x="340" y="524" width="220" height="78" rx="18"/>
+    </g>
+    <g fill="#EAF4FF" font-size="19" font-weight="700">
+      <text x="200" y="132">Human Expertise</text>
+      <text x="700" y="132">Knowledge Layer</text>
+      <text x="200" y="521">Enterprise Systems</text>
+      <text x="700" y="521">Workflows</text>
+      <text x="450" y="84">AI Capabilities</text>
+      <text x="450" y="570">Business Outcomes</text>
+    </g>
+  </g>
+</svg>

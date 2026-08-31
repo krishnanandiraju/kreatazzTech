@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous Intelligence Loop</title>
+  <desc id="desc">Observe, learn, improve, execute, observe loop used by Kreatazz to show continuous improvement.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081423"/><stop offset="1" stop-color="#071019"/></linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#008CFF"/><stop offset="1" stop-color="#39FF14"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#39FF14"/></marker>
+  </defs>
+  <rect width="900" height="620" rx="34" fill="url(#bg)"/>
+  <circle cx="450" cy="310" r="180" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-dasharray="360 46" marker-end="url(#arrow)"/>
+  <circle cx="450" cy="310" r="112" fill="#0D2539" stroke="#24415F"/>
+  <text x="450" y="292" fill="#fff" text-anchor="middle" font-family="Inter, Arial" font-size="26" font-weight="800">Continuous</text>
+  <text x="450" y="328" fill="#fff" text-anchor="middle" font-family="Inter, Arial" font-size="26" font-weight="800">Evolution</text>
+  <text x="450" y="360" fill="#9FD1FF" text-anchor="middle" font-family="Inter, Arial" font-size="16">Intelligence improves through use</text>
+  <g font-family="Inter, Arial" font-weight="800" font-size="23" fill="#EAF4FF" text-anchor="middle">
+    <text x="450" y="90">Observe</text>
+    <text x="705" y="320">Learn</text>
+    <text x="450" y="553">Improve</text>
+    <text x="195" y="320">Execute</text>
+  </g>
+  <g fill="#0E1B31" stroke="#24415F" stroke-width="2">
+    <circle cx="450" cy="132" r="24"/><circle cx="660" cy="310" r="24"/><circle cx="450" cy="488" r="24"/><circle cx="240" cy="310" r="24"/>
+  </g>
+  <g fill="#39FF14"><circle cx="450" cy="132" r="7"/><circle cx="660" cy="310" r="7"/><circle cx="450" cy="488" r="7"/><circle cx="240" cy="310" r="7"/></g>
+</svg>

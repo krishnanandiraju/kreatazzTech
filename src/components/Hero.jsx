@@ -6,6 +6,7 @@ function Hero({ content }) {
           <p className="eyebrow">{content.eyebrow}</p>
           <h1 id="hero-title">{content.headline}</h1>
           <p className="hero-copy">{content.subheadline}</p>
+          {content.proofLine ? <p className="hero-proof">{content.proofLine}</p> : null}
 
           <div className="hero-actions">
             <a className="btn btn-primary" href={content.primaryCta.href}>
@@ -17,20 +18,12 @@ function Hero({ content }) {
           </div>
         </div>
 
-        <aside className="hero-panel" aria-label="Delivery highlights">
-          <div className="hero-visual" aria-hidden="true">
+        <aside className="hero-panel" aria-label="Operational intelligence highlights">
+          <div className="hero-visual hero-visual-framework" aria-hidden="true">
             <img src={content.image} alt="" loading="eager" />
-            <span className="media-overlay" />
           </div>
-          <h2>{content.panelTitle}</h2>
-          <ul>
-            {content.stats.map((item) => (
-              <li key={item.label}>
-                <span>{item.label}</span>
-                <strong>{item.value}</strong>
-              </li>
-            ))}
-          </ul>
+          <p className="hero-supporting-copy">{content.supportingCopy}</p>
+          <p className="hero-closing-line">{content.closingLine}</p>
         </aside>
       </div>
     </section>

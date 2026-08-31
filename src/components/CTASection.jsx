@@ -17,7 +17,7 @@ function CTASection({
           <p>{text}</p>
           <ul className="contact-meta">
             <li>{email}</li>
-            <li>{phone}</li>
+            {phone ? <li>{phone}</li> : null}
             <li>{location}</li>
           </ul>
         </div>

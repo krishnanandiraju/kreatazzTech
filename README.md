@@ -1,55 +1,38 @@
-# Kreatazz Main Site
+# Kreatazz Main Website
 
-Custom, static-first website for Kreatazz Innovation Technology Solutions.
+Vite + React static website for Kreatazz Innovation Technology Solutions.
 
-Built with Vite + React and hand-crafted CSS for a premium, calm, business-ready brand presentation.
+This version merges the existing website with the approved new positioning:
+
+> **Operationalize AI. Create Business Advantage.**
+
+Kreatazz is now positioned as an **Operational Intelligence Company** and the homepage is organized around the signature model:
+
+> **Frontier AI → Kreatazz → Enterprise Execution**
 
 ## Stack
 
 - Vite
 - React
-- Custom CSS (no Bootstrap, no template libraries)
+- Custom CSS
+- Static output for cPanel / GitHub Actions deployment
 
-## Project Structure
+## Important files
 
-```
-src/
-	components/
-		Header.jsx
-		Footer.jsx
-		Hero.jsx
-		SectionTitle.jsx
-		ServiceCard.jsx
-		CTASection.jsx
-	pages/
-		Home.jsx
-	data/
-		siteContent.js
-	styles/
-		base.css
-		layout.css
-		home.css
-		responsive.css
-	App.jsx
-	main.jsx
-
-public/
-	images/
-
-.github/
-	workflows/
-		deploy-preview.yml
+```text
+src/data/siteContent.js                 Homepage content and navigation
+src/pages/Home.jsx                      Homepage structure
+src/data/legacyPages.js                 Supporting pages and preserved legacy content
+src/data/blogPosts.js                   Existing blog posts
+src/styles/base.css                     Base theme
+src/styles/layout.css                   Header/footer/layout
+src/styles/home.css                     Homepage sections
+src/styles/responsive.css               Breakpoints
+public/operational-intelligence/*.svg   New proprietary framework visuals
+docs/VISUAL_STUDIO_IMPLEMENTATION_PROMPT.md
 ```
 
-## Content Management
-
-All editable website copy is centralized in:
-
-- `src/data/siteContent.js`
-
-You can update headlines, sections, cards, and contact copy without touching component logic.
-
-## Local Development
+## Local development
 
 Install dependencies:
 
@@ -63,51 +46,63 @@ Run dev server:
 npm run dev
 ```
 
-Create static production build:
+Create production build:
 
 ```bash
 npm run build
 ```
 
-Preview static build locally:
+Preview production build:
 
 ```bash
 npm run preview
 ```
 
-## Deployment to GoDaddy cPanel Preview
+## Content editing
 
-This repository includes GitHub Actions FTP deployment via:
+Most homepage content is in:
 
-- `SamKirkland/FTP-Deploy-Action`
+```text
+src/data/siteContent.js
+```
 
-Workflow file:
+Supporting page content is in:
 
-- `.github/workflows/deploy-preview.yml`
+```text
+src/data/legacyPages.js
+```
 
-Important behavior:
+## Deployment
 
-- Deploy source is `dist/`
-- FTP target is `server-dir: /`
-- No dangerous clean slate is enabled
+The existing GitHub Actions workflows are preserved:
 
-Set these repository secrets in GitHub:
+```text
+.github/workflows/deploy-preview.yml
+.github/workflows/deploy-production.yml
+```
 
-- `FTP_SERVER`
-- `FTP_USERNAME`
-- `FTP_PASSWORD`
-- `FTP_PORT` (optional, defaults to 21)
+The build output remains:
 
-`FTP_SERVER_DIR` is not needed for this workflow because the preview deploy target is fixed to `/`.
+```text
+dist/
+```
 
-Then trigger deploy by:
+## Editorial direction
 
-1. Pushing to `main`, or
-2. Running the workflow manually from GitHub Actions (`workflow_dispatch`)
+The new narrative has priority over legacy duplicate content. Preserve old content only when it supports the new category narrative.
 
-## Notes
+Preferred language:
 
-- Static-only output for cPanel hosting
-- No backend required
-- No SSR required
-- No React Router required for current one-page architecture
+- Operational Intelligence
+- Intelligent Enterprise
+- Execution Capability
+- Workflow Intelligence
+- Intelligence Infrastructure
+- Human-Centered AI
+
+Avoid leading with:
+
+- Generic AI consulting
+- Generic AI implementation
+- Digital transformation buzzwords
+- Robot/humanoid AI imagery
