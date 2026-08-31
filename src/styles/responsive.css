@@ -144,6 +144,16 @@
   .contact-actions .btn {
     width: 100%;
   }
+
+  .floating-cta {
+    right: 0.8rem;
+    left: 0.8rem;
+    bottom: 0.8rem;
+  }
+
+  .floating-cta .btn {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

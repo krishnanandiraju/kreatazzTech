@@ -84,6 +84,7 @@
   display: inline-flex;
   padding: 0.48rem 0.66rem;
   border-radius: 999px;
+  border: 1px solid transparent;
   color: #b8c5db;
   text-decoration: none;
   font-size: 0.82rem;
@@ -98,6 +99,12 @@
   outline: none;
 }
 
+.nav-list a.is-active {
+  color: #f4f8ff;
+  background: rgba(74, 178, 255, 0.2);
+  border: 1px solid rgba(74, 178, 255, 0.45);
+}
+
 .site-footer {
   border-top: 1px solid var(--kz-border);
   padding: 2.4rem 0 1.2rem;
@@ -105,7 +112,7 @@
 
 .footer-inner {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.1rem;
   align-items: start;
 }
@@ -216,4 +223,15 @@
   border-color: #4ab2ff;
   color: #f4f8ff;
   outline: none;
+}
+
+.floating-cta {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 35;
+}
+
+.floating-cta .btn {
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
 }

@@ -105,6 +105,72 @@ main {
   font-size: 0.84rem;
 }
 
+.lead-intake {
+  padding-top: 2rem;
+}
+
+.lead-intake-wrap {
+  border: 1px solid var(--kz-border);
+  border-radius: calc(var(--kz-radius) + 2px);
+  padding: 1.1rem;
+  background: linear-gradient(165deg, rgba(17, 28, 46, 0.84), rgba(11, 19, 32, 0.94));
+  display: grid;
+  gap: 1rem;
+}
+
+.lead-intake-copy h2 {
+  margin-top: 0.4rem;
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+}
+
+.lead-intake-copy p {
+  margin-top: 0.55rem;
+  color: var(--kz-muted);
+}
+
+.lead-intake-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.lead-intake-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: #dce8fb;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.lead-intake-form input,
+.lead-intake-form select,
+.lead-intake-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #edf4ff;
+  font: inherit;
+  padding: 0.66rem 0.8rem;
+}
+
+.lead-intake-form textarea {
+  resize: vertical;
+  min-height: 94px;
+}
+
+.lead-intake-form input::placeholder,
+.lead-intake-form textarea::placeholder {
+  color: #9ab0cb;
+}
+
+.lead-intake-form input:focus,
+.lead-intake-form select:focus,
+.lead-intake-form textarea:focus {
+  outline: none;
+  border-color: #4ab2ff;
+  box-shadow: 0 0 0 3px rgba(74, 178, 255, 0.14);
+}
+
 .hero-grid {
   display: grid;
   gap: 1.8rem;

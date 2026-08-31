@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { trackNavigation } from '../utils/analytics'
 import { navigateTo } from '../utils/navigation'
 
-function Header({ companyName, brandShort, logoMark, nav }) {
+function normalize(path) {
+  if (!path) return '/'
+  const withoutTrailing = path.endsWith('/') ? path.slice(0, -1) : path
+  return withoutTrailing || '/'
+}
+
+function Header({ companyName, brandShort, logoMark, nav, currentPath, currentHash }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navigateInternal = (event, href, label = '') => {
@@ -18,6 +24,19 @@ function Header({ companyName, brandShort, logoMark, nav }) {
 
   const handleNavClick = () => {
     setMenuOpen(false)
+  }
+
+  const isActiveNavItem = (href) => {
+    if (!href) return false
+
+    if (href.includes('#')) {
+      const [hrefPath, hrefHash] = href.split('#')
+      const pathMatch = normalize(hrefPath || '/') === normalize(currentPath)
+      const hashMatch = `#${hrefHash || ''}` === (currentHash || '')
+      return pathMatch && hashMatch
+    }
+
+    return normalize(href) === normalize(currentPath)
   }
 
   return (
@@ -61,6 +80,7 @@ function Header({ companyName, brandShort, logoMark, nav }) {
               <li key={item.href}>
                 <a
                   href={item.href}
+                  className={isActiveNavItem(item.href) ? 'is-active' : ''}
                   onClick={(event) => {
                     handleNavClick()
                     navigateInternal(event, item.href, item.label)

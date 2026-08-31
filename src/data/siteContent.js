@@ -13,7 +13,7 @@ export const siteContent = {
     { label: 'Home', href: '/' },
     { label: 'Capabilities', href: '/services/' },
     { label: 'Solutions', href: '/solutions/' },
-    { label: 'Industries', href: '/manufacturing-intelligence/' },
+    { label: 'Industries', href: '/industries/' },
     { label: 'About', href: '/about/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Contact', href: '/#contact-us' },
@@ -312,6 +312,13 @@ export const siteContent = {
   },
   footer: {
     note: 'Operational Intelligence. Enterprise Execution. Human-Centered AI.',
+    quickLinks: [
+      { label: 'Home', href: '/' },
+      { label: 'Solutions', href: '/solutions/' },
+      { label: 'Industries', href: '/industries/' },
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Contact', href: '/#contact-us' },
+    ],
     services: [
       'Operational Intelligence',
       'AI & Data Platforms',

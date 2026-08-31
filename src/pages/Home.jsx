@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import CTASection from '../components/CTASection'
 import Hero from '../components/Hero'
+import LeadIntakeForm from '../components/LeadIntakeForm'
 import PathWizard from '../components/PathWizard'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
@@ -45,6 +46,7 @@ function Home({ content, blogPosts }) {
       <Hero content={content.hero} />
       <StickySubNav items={subNavItems} />
       <PathWizard />
+      <LeadIntakeForm email={content.email} />
 
       <section id="deployment-layer" className="section deployment-layer" aria-labelledby="deployment-layer-title">
         <div className="shell deployment-layout">

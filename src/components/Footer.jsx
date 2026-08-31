@@ -1,6 +1,7 @@
 import { trackExternalLinkClick, trackFormSubmission } from '../utils/analytics'
+import { navigateTo } from '../utils/navigation'
 
-function Footer({ companyName, email, note, services, products }) {
+function Footer({ companyName, email, note, services, products, quickLinks = [] }) {
   const handleProductLinkClick = (productLabel, productHref) => {
     trackExternalLinkClick(productLabel, productHref, 'product')
   }
@@ -36,6 +37,28 @@ function Footer({ companyName, email, note, services, products }) {
                 ) : (
                   <span>{product.label}</span>
                 )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="footer-title">Quick Links</p>
+          <ul className="footer-list">
+            {quickLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(event) => {
+                    if (!link.href.startsWith('/')) {
+                      return
+                    }
+
+                    event.preventDefault()
+                    navigateTo(link.href)
+                  }}
+                >
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
