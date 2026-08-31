@@ -12,8 +12,19 @@ function BlogPostPage({ post }) {
     }
   }, [post])
 
-  const handleBackClick = () => {
+  const handleBackClick = (event) => {
+    event.preventDefault()
     trackBlogInteraction('back_to_list', 'blog_list', 'click')
+    window.history.pushState({}, '', '/blog/')
+    window.dispatchEvent(new Event('locationchange'))
+  }
+
+  const handleTagClick = (event, tag) => {
+    event.preventDefault()
+    const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
+    trackBlogInteraction(`Filter: ${tag}`, tagSlug, 'tag_click')
+    window.history.pushState({}, '', `/blog/?tag=${tagSlug}`)
+    window.dispatchEvent(new Event('locationchange'))
   }
 
   if (!post) {
@@ -74,7 +85,7 @@ function BlogPostPage({ post }) {
             <div className="blog-tags">
               <span className="tags-label">Tags:</span>
               {post.tags.map((tag) => (
-                <a key={tag} href={`/blog/?tag=${tag}`} className="blog-tag">
+                <a key={tag} href={`/blog/?tag=${tag}`} className="blog-tag" onClick={(e) => handleTagClick(e, tag)}>
                   #{tag.replace('-', ' ')}
                 </a>
               ))}

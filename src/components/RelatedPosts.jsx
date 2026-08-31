@@ -6,8 +6,11 @@ function RelatedPosts({ posts }) {
     return null
   }
 
-  const handleRelatedPostClick = (postTitle, postSlug) => {
+  const handleRelatedPostClick = (event, postTitle, postSlug) => {
+    event.preventDefault()
     trackBlogInteraction(postTitle, postSlug, 'click_related')
+    window.history.pushState({}, '', `/blog/${postSlug}/`)
+    window.dispatchEvent(new Event('locationchange'))
   }
 
   return (
@@ -20,7 +23,7 @@ function RelatedPosts({ posts }) {
               <a 
                 href={`/blog/${post.slug}/`}
                 className="related-post-link"
-                onClick={() => handleRelatedPostClick(post.title, post.slug)}
+                 onClick={(e) => handleRelatedPostClick(e, post.title, post.slug)}
               >
                 <figure className="related-post-visual" aria-hidden="true">
                   <img src={post.featuredImage} alt="" loading="lazy" />

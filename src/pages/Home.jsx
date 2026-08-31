@@ -4,6 +4,12 @@ import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 
 function Home({ content, blogPosts }) {
+    const handleBlogPostClick = (event, postSlug) => {
+      event.preventDefault()
+      window.history.pushState({}, '', `/blog/${postSlug}/`)
+      window.dispatchEvent(new Event('locationchange'))
+    }
+
   return (
     <main id="home">
       <Hero content={content.hero} />
@@ -243,7 +249,7 @@ function Home({ content, blogPosts }) {
                   <span className="media-overlay" />
                 </figure>
                 <h3>
-                  <a className="content-link" href={`/blog/${post.slug}/`}>
+                  <a className="content-link" href={`/blog/${post.slug}/`} onClick={(e) => handleBlogPostClick(e, post.slug)}>
                     {post.title}
                   </a>
                 </h3>
