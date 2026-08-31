@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
 import { trackBlogInteraction } from '../utils/analytics'
+import Breadcrumbs from '../components/Breadcrumbs'
 import { formatBlogDate } from '../utils/blog'
 import RelatedPosts from '../components/RelatedPosts'
 import Newsletter from '../components/Newsletter'
 import { getRelatedPosts } from '../data/blogPosts'
 import { navigateTo } from '../utils/navigation'
 
-function BlogPostPage({ post }) {
+function BlogPostPage({ post, breadcrumbs }) {
   useEffect(() => {
     if (post) {
       trackBlogInteraction(post.title, post.slug, 'view')
@@ -45,6 +46,7 @@ function BlogPostPage({ post }) {
   return (
     <main className="section content-page" id="blog-post">
       <div className="shell content-page-narrow">
+        <Breadcrumbs items={breadcrumbs} />
         <a className="content-link back-link" href="/blog/" onClick={handleBackClick}>
           ← Back to Blog
         </a>

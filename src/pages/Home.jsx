@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import CTASection from '../components/CTASection'
 import Hero from '../components/Hero'
+import PathWizard from '../components/PathWizard'
 import SectionTitle from '../components/SectionTitle'
 import ServiceCard from '../components/ServiceCard'
 import { navigateTo } from '../utils/navigation'
@@ -29,6 +30,7 @@ function Home({ content, blogPosts }) {
   return (
     <main id="home">
       <Hero content={content.hero} />
+      <PathWizard />
 
       <section id="deployment-layer" className="section deployment-layer" aria-labelledby="deployment-layer-title">
         <div className="shell deployment-layout">

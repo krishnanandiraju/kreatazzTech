@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
+import IndustriesPage from './pages/IndustriesPage'
 import LegacyPage from './pages/LegacyPage'
 import { blogPosts, blogPostBySlug } from './data/blogPosts'
 import { legacyPageBySlug } from './data/legacyPages'
@@ -25,6 +26,10 @@ function getRoute(pathname) {
 
   if (normalized === '/blog') {
     return { type: 'blog-list' }
+  }
+
+  if (normalized === '/industries') {
+    return { type: 'industries' }
   }
 
   if (normalized.startsWith('/blog/')) {
@@ -64,6 +69,45 @@ function App() {
 
   const route = useMemo(() => getRoute(pathname), [pathname])
 
+  const breadcrumbs = useMemo(() => {
+    if (route.type === 'home') {
+      return []
+    }
+
+    if (route.type === 'blog-list') {
+      return [
+        { label: 'Home', href: '/' },
+        { label: 'Blog' },
+      ]
+    }
+
+    if (route.type === 'blog-post') {
+      const post = blogPostBySlug[route.slug]
+      return [
+        { label: 'Home', href: '/' },
+        { label: 'Blog', href: '/blog/' },
+        { label: post?.title || 'Article' },
+      ]
+    }
+
+    if (route.type === 'industries') {
+      return [
+        { label: 'Home', href: '/' },
+        { label: 'Industries' },
+      ]
+    }
+
+    if (route.type === 'legacy-page') {
+      const page = legacyPageBySlug[route.slug]
+      return [
+        { label: 'Home', href: '/' },
+        { label: page?.title || 'Page' },
+      ]
+    }
+
+    return []
+  }, [route])
+
   const navItems = useMemo(() => {
     if (route.type === 'home') {
       return siteContent.nav
@@ -86,11 +130,13 @@ function App() {
 
       {route.type === 'home' ? <Home content={siteContent} blogPosts={blogPosts} /> : null}
 
-      {route.type === 'blog-list' ? <BlogListPage posts={blogPosts} /> : null}
+      {route.type === 'blog-list' ? <BlogListPage posts={blogPosts} breadcrumbs={breadcrumbs} /> : null}
 
-      {route.type === 'blog-post' ? <BlogPostPage post={blogPostBySlug[route.slug]} /> : null}
+      {route.type === 'blog-post' ? <BlogPostPage post={blogPostBySlug[route.slug]} breadcrumbs={breadcrumbs} /> : null}
 
-      {route.type === 'legacy-page' ? <LegacyPage page={legacyPageBySlug[route.slug]} /> : null}
+      {route.type === 'industries' ? <IndustriesPage items={siteContent.industries.items} breadcrumbs={breadcrumbs} /> : null}
+
+      {route.type === 'legacy-page' ? <LegacyPage page={legacyPageBySlug[route.slug]} breadcrumbs={breadcrumbs} /> : null}
 
       <Footer
         companyName={siteContent.companyName}

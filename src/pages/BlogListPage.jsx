@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { trackBlogInteraction, trackBlogSearch, trackBlogFilter } from '../utils/analytics'
+import Breadcrumbs from '../components/Breadcrumbs'
 import { formatBlogDate } from '../utils/blog'
 import Newsletter from '../components/Newsletter'
 import { blogCategories } from '../data/blogPosts'
@@ -13,7 +14,7 @@ function slugify(value) {
     .replace(/\s+/g, '-')
 }
 
-function BlogListPage({ posts }) {
+function BlogListPage({ posts, breadcrumbs }) {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [selectedTagSlug, setSelectedTagSlug] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
@@ -86,6 +87,8 @@ function BlogListPage({ posts }) {
   return (
     <main className="section content-page" id="blog-list">
       <div className="shell">
+        <Breadcrumbs items={breadcrumbs} />
+
         <div className="content-page-head">
           <p className="kicker">Blog</p>
           <h1>Insights from Kreatazz</h1>

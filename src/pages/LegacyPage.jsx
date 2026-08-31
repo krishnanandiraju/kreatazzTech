@@ -1,6 +1,7 @@
 import { navigateTo } from '../utils/navigation'
+import Breadcrumbs from '../components/Breadcrumbs'
 
-function LegacyPage({ page }) {
+function LegacyPage({ page, breadcrumbs }) {
   const handleBackHomeClick = (event) => {
     event.preventDefault()
     navigateTo('/')
@@ -23,6 +24,7 @@ function LegacyPage({ page }) {
   return (
     <main className="section content-page" id={`legacy-${page.slug}`}>
       <div className="shell content-page-narrow">
+        <Breadcrumbs items={breadcrumbs} />
         <a className="content-link back-link" href="/" onClick={handleBackHomeClick}>
           Back Home
         </a>

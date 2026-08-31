@@ -6,6 +6,105 @@ main {
   padding: 5.2rem 0 3.8rem;
 }
 
+.start-path {
+  padding-top: 1.6rem;
+}
+
+.start-path-head {
+  max-width: 72ch;
+}
+
+.start-path-head h2 {
+  margin-top: 0.45rem;
+  font-size: clamp(1.6rem, 4.7vw, 2.2rem);
+}
+
+.start-path-head p {
+  margin-top: 0.6rem;
+  color: var(--kz-muted);
+}
+
+.wizard-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.wizard-step,
+.wizard-result {
+  border: 1px solid var(--kz-border);
+  border-radius: var(--kz-radius);
+  background: linear-gradient(165deg, rgba(17, 28, 46, 0.8), rgba(11, 19, 32, 0.9));
+  padding: 1rem;
+}
+
+.wizard-step h3,
+.wizard-result h3 {
+  font-size: 1.05rem;
+  margin-top: 0.2rem;
+}
+
+.wizard-step-label {
+  color: #9fd1ff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.wizard-options {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.wizard-option {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #dce7f8;
+  text-align: left;
+  padding: 0.72rem 0.8rem;
+  cursor: pointer;
+  font: inherit;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.wizard-option strong {
+  color: #eff5ff;
+  font-size: 0.93rem;
+}
+
+.wizard-option span {
+  color: var(--kz-muted);
+  font-size: 0.84rem;
+}
+
+.wizard-option:hover,
+.wizard-option:focus-visible,
+.wizard-option.active {
+  border-color: #4ab2ff;
+  background: rgba(74, 178, 255, 0.14);
+  outline: none;
+}
+
+.wizard-result {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.wizard-result-title {
+  color: #f4f8ff;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.wizard-result-meta {
+  color: #9fd1ff;
+  font-size: 0.84rem;
+}
+
 .hero-grid {
   display: grid;
   gap: 1.8rem;
@@ -552,6 +651,33 @@ main {
   margin-top: 1.2rem;
   display: flex;
   justify-content: center;
+}
+
+.industry-landing-grid {
+  margin-top: 1.35rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.industry-landing-card {
+  border: 1px solid var(--kz-border);
+  border-radius: var(--kz-radius);
+  background: rgba(17, 28, 46, 0.66);
+  padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.industry-landing-card h2 {
+  font-size: 1.12rem;
+}
+
+.industry-landing-card p {
+  color: var(--kz-muted);
+}
+
+.industry-landing-card .btn {
+  width: fit-content;
 }
 
 .content-page {

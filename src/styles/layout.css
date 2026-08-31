@@ -140,3 +140,41 @@
   border-top: 1px solid var(--kz-border);
   padding-top: 0.8rem;
 }
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--kz-muted);
+  font-size: 0.82rem;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: '/';
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.breadcrumbs a {
+  color: #9fd1ff;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
