@@ -70,8 +70,8 @@ export const trackExternalLinkClick = (linkText, url, linkType = 'external') => 
 }
 
 /**
- * Track form submissions (email contact, etc.)
- * @param {string} formType - Type of form (e.g., "contact_email", "newsletter")
+ * Track form submissions (email contact, newsletter, etc.)
+ * @param {string} formType - Type of form (e.g., "contact_email", "newsletter_signup")
  * @param {string} email - The email address (optional, can be hashed for privacy)
  */
 export const trackFormSubmission = (formType, email = null) => {
@@ -108,6 +108,81 @@ export const trackNavigation = (fromPage, toPage) => {
       event_category: 'navigation',
       from_page: fromPage,
       to_page: toPage,
+    })
+  }
+}
+
+/**
+ * Track blog search queries
+ * @param {string} searchQuery - The search query entered
+ * @param {number} resultCount - Number of results found
+ */
+export const trackBlogSearch = (searchQuery, resultCount) => {
+  if (window.gtag) {
+    window.gtag('event', 'blog_search', {
+      event_category: 'blog',
+      event_label: searchQuery,
+      results: resultCount,
+    })
+  }
+}
+
+/**
+ * Track blog category/filter selection
+ * @param {string} category - The category selected
+ * @param {number} resultCount - Number of posts in selected category
+ */
+export const trackBlogFilter = (category, resultCount) => {
+  if (window.gtag) {
+    window.gtag('event', 'blog_filter', {
+      event_category: 'blog',
+      event_label: category,
+      results: resultCount,
+    })
+  }
+}
+
+/**
+ * Track newsletter signup
+ * @param {string} source - Where the signup occurred (e.g., "blog_post", "blog_list", "footer")
+ */
+export const trackNewsletterSignup = (source = 'unknown') => {
+  if (window.gtag) {
+    window.gtag('event', 'newsletter_signup', {
+      event_category: 'engagement',
+      source: source,
+    })
+  }
+}
+
+/**
+ * Track video engagement (if applicable in future)
+ * @param {string} videoTitle - Title of video
+ * @param {string} action - Action (play, pause, complete, etc.)
+ * @param {number} currentTime - Current video time in seconds
+ */
+export const trackVideoEngagement = (videoTitle, action, currentTime = 0) => {
+  if (window.gtag) {
+    window.gtag('event', 'video_engagement', {
+      event_category: 'media',
+      event_label: videoTitle,
+      action: action,
+      video_time: currentTime,
+    })
+  }
+}
+
+/**
+ * Track time on page for engagement analysis
+ * @param {string} pagePath - The page path
+ * @param {number} timeSpent - Time spent on page in seconds
+ */
+export const trackTimeOnPage = (pagePath, timeSpent) => {
+  if (window.gtag && timeSpent > 10) { // Only track if spent more than 10 seconds
+    window.gtag('event', 'engagement_time', {
+      event_category: 'engagement',
+      page: pagePath,
+      time_seconds: Math.round(timeSpent),
     })
   }
 }
