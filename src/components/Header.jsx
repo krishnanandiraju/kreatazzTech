@@ -1,14 +1,17 @@
 import { useState } from 'react'
+import { trackNavigation } from '../utils/analytics'
 
 function Header({ companyName, brandShort, logoMark, nav }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const navigateInternal = (event, href) => {
+  const navigateInternal = (event, href, label = '') => {
     if (!href?.startsWith('/')) {
       return
     }
 
     event.preventDefault()
+    const currentPage = window.location.pathname
+    trackNavigation(currentPage, href)
     window.history.pushState({}, '', href)
     window.dispatchEvent(new Event('locationchange'))
   }
@@ -26,7 +29,7 @@ function Header({ companyName, brandShort, logoMark, nav }) {
           aria-label={`${companyName} home`}
           onClick={(event) => {
             handleNavClick()
-            navigateInternal(event, '/')
+            navigateInternal(event, '/', 'logo')
           }}
         >
           <img
@@ -60,7 +63,7 @@ function Header({ companyName, brandShort, logoMark, nav }) {
                   href={item.href}
                   onClick={(event) => {
                     handleNavClick()
-                    navigateInternal(event, item.href)
+                    navigateInternal(event, item.href, item.label)
                   }}
                 >
                   {item.label}

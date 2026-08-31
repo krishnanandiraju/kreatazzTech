@@ -1,4 +1,14 @@
+import { trackCTAClick } from '../utils/analytics'
+
 function Hero({ content }) {
+  const handlePrimaryCtaClick = () => {
+    trackCTAClick(content.primaryCta.label, 'hero', content.primaryCta.href)
+  }
+
+  const handleSecondaryCtaClick = () => {
+    trackCTAClick(content.secondaryCta.label, 'hero', content.secondaryCta.href)
+  }
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="shell hero-grid">
@@ -9,10 +19,10 @@ function Hero({ content }) {
           {content.proofLine ? <p className="hero-proof">{content.proofLine}</p> : null}
 
           <div className="hero-actions">
-            <a className="btn btn-primary" href={content.primaryCta.href}>
+            <a className="btn btn-primary" href={content.primaryCta.href} onClick={handlePrimaryCtaClick}>
               {content.primaryCta.label}
             </a>
-            <a className="btn btn-secondary" href={content.secondaryCta.href}>
+            <a className="btn btn-secondary" href={content.secondaryCta.href} onClick={handleSecondaryCtaClick}>
               {content.secondaryCta.label}
             </a>
           </div>

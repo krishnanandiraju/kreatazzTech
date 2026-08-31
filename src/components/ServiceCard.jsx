@@ -1,8 +1,16 @@
+import { trackServiceInteraction } from '../utils/analytics'
+
 function ServiceCard({ title, description, image, href }) {
+  const handleServiceClick = () => {
+    if (href) {
+      trackServiceInteraction(title, 'click')
+    }
+  }
+
   const CardTag = href ? 'a' : 'article'
 
   return (
-    <CardTag className={`service-card ${href ? 'service-card-link' : ''}`} href={href}>
+    <CardTag className={`service-card ${href ? 'service-card-link' : ''}`} href={href} onClick={handleServiceClick}>
       <div className="service-visual" aria-hidden="true">
         <img src={image} alt="" loading="lazy" />
         <span className="media-overlay" />

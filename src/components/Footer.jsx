@@ -1,4 +1,14 @@
+import { trackExternalLinkClick, trackFormSubmission } from '../utils/analytics'
+
 function Footer({ companyName, email, note, services, products }) {
+  const handleProductLinkClick = (productLabel, productHref) => {
+    trackExternalLinkClick(productLabel, productHref, 'product')
+  }
+
+  const handleEmailClick = () => {
+    trackFormSubmission('contact_email_footer', email)
+  }
+
   return (
     <footer className="site-footer">
       <div className="shell footer-inner">
@@ -20,7 +30,7 @@ function Footer({ companyName, email, note, services, products }) {
             {products.map((product) => (
               <li key={product.label}>
                 {product.href ? (
-                  <a href={product.href} target="_blank" rel="noreferrer">
+                  <a href={product.href} target="_blank" rel="noreferrer" onClick={() => handleProductLinkClick(product.label, product.href)}>
                     {product.label}
                   </a>
                 ) : (
@@ -32,7 +42,7 @@ function Footer({ companyName, email, note, services, products }) {
         </div>
         <div>
           <p className="footer-title">Contact</p>
-          <a href={`mailto:${email}`}>{email}</a>
+          <a href={`mailto:${email}`} onClick={handleEmailClick}>{email}</a>
         </div>
       </div>
       <div className="shell footer-copy">

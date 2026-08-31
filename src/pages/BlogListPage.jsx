@@ -1,4 +1,10 @@
+import { trackBlogInteraction } from '../utils/analytics'
+
 function BlogListPage({ posts }) {
+  const handleBlogPostClick = (postTitle, postSlug) => {
+    trackBlogInteraction(postTitle, postSlug, 'click_from_list')
+  }
+
   return (
     <main className="section content-page" id="blog-list">
       <div className="shell">
@@ -17,7 +23,7 @@ function BlogListPage({ posts }) {
               </figure>
               <p className="blog-date">{post.date}</p>
               <h3>
-                <a className="content-link" href={`/blog/${post.slug}/`}>
+                <a className="content-link" href={`/blog/${post.slug}/`} onClick={() => handleBlogPostClick(post.title, post.slug)}>
                   {post.title}
                 </a>
               </h3>

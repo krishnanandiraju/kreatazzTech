@@ -1,4 +1,17 @@
+import { useEffect } from 'react'
+import { trackBlogInteraction } from '../utils/analytics'
+
 function BlogPostPage({ post }) {
+  useEffect(() => {
+    if (post) {
+      trackBlogInteraction(post.title, post.slug, 'view')
+    }
+  }, [post])
+
+  const handleBackClick = () => {
+    trackBlogInteraction('back_to_list', 'blog_list', 'click')
+  }
+
   if (!post) {
     return (
       <main className="section content-page">
@@ -16,7 +29,7 @@ function BlogPostPage({ post }) {
   return (
     <main className="section content-page" id="blog-post">
       <div className="shell content-page-narrow">
-        <a className="content-link back-link" href="/blog/">
+        <a className="content-link back-link" href="/blog/" onClick={handleBackClick}>
           Back to Blog
         </a>
         <article className="blog-post">

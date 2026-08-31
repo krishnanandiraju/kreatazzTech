@@ -1,3 +1,5 @@
+import { trackFormSubmission, trackCTAClick } from '../utils/analytics'
+
 function CTASection({
   id,
   title,
@@ -9,6 +11,14 @@ function CTASection({
   phone,
   location,
 }) {
+  const handleEmailClick = () => {
+    trackFormSubmission('contact_email', email)
+  }
+
+  const handleSecondaryCtaClick = () => {
+    trackCTAClick(secondaryCtaLabel, 'cta-section', secondaryCtaHref)
+  }
+
   return (
     <section id={id} className="contact" aria-labelledby="contact-title">
       <div className="shell contact-wrap">
@@ -22,10 +32,10 @@ function CTASection({
           </ul>
         </div>
         <div className="contact-actions">
-          <a className="btn btn-primary" href={`mailto:${email}`}>
+          <a className="btn btn-primary" href={`mailto:${email}`} onClick={handleEmailClick}>
             {ctaLabel}
           </a>
-          <a className="btn btn-secondary" href={secondaryCtaHref}>
+          <a className="btn btn-secondary" href={secondaryCtaHref} onClick={handleSecondaryCtaClick}>
             {secondaryCtaLabel}
           </a>
         </div>
