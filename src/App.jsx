@@ -60,13 +60,11 @@ function toAbsoluteUrl(href) {
 function App() {
   const [pathname, setPathname] = useState(window.location.pathname)
   const [hash, setHash] = useState(window.location.hash)
-  const [search, setSearch] = useState(window.location.search)
 
   useEffect(() => {
     const onLocationUpdate = () => {
       setPathname(window.location.pathname)
       setHash(window.location.hash)
-      setSearch(window.location.search)
 
       if (window.location.hash) {
         const target = document.querySelector(window.location.hash)
@@ -90,6 +88,11 @@ function App() {
   }, [])
 
   const route = useMemo(() => getRoute(pathname), [pathname])
+  const routeExists = useMemo(() => {
+    if (route.type === 'blog-post') return Boolean(blogPostBySlug[route.slug])
+    if (route.type === 'legacy-page') return Boolean(legacyPageBySlug[route.slug])
+    return true
+  }, [route])
 
   const breadcrumbs = useMemo(() => {
     if (route.type === 'home') {
@@ -200,7 +203,8 @@ function App() {
       description = legacyPage.intro
     }
 
-    const canonicalHref = `${window.location.origin}${pathname}${search}`
+    const canonicalPath = pathname === '/' ? '/' : `${normalizePathname(pathname)}/`
+    const canonicalHref = `${window.location.origin}${canonicalPath}`
 
     const upsertMetaByName = (name, content) => {
       let tag = document.querySelector(`meta[name="${name}"]`)
@@ -230,9 +234,14 @@ function App() {
     }
     canonicalTag.setAttribute('href', canonicalHref)
 
+    if (!routeExists) {
+      title = 'Page Not Found | Kreatazz'
+      description = 'The requested page could not be found. Explore Kreatazz capabilities, industries, products, and insights.'
+    }
+
     document.title = title
     upsertMetaByName('description', description)
-    upsertMetaByName('robots', 'index,follow,max-image-preview:large')
+    upsertMetaByName('robots', routeExists ? 'index,follow,max-image-preview:large' : 'noindex,follow')
     upsertMetaByName('twitter:card', 'summary_large_image')
     upsertMetaByName('twitter:title', title)
     upsertMetaByName('twitter:description', description)
@@ -242,7 +251,7 @@ function App() {
     upsertMetaByProperty('og:description', description)
     upsertMetaByProperty('og:url', canonicalHref)
     upsertMetaByProperty('og:site_name', 'Kreatazz')
-  }, [route, pathname, search])
+  }, [route, pathname, routeExists])
 
   const navItems = useMemo(() => {
     if (route.type === 'home') {

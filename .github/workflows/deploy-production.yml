@@ -117,3 +117,44 @@ jobs:
           local-dir: ./dist/
           server-dir: ${{ env.FTP_SERVER_DIR }}
           dangerous-clean-slate: true
+
+      - name: Verify production routes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for route in / /about/ /services/ /manufacturing-intelligence/; do
+            response_file="$(mktemp)"
+            status="$(curl --silent --show-error --location --retry 4 --retry-all-errors \
+              --connect-timeout 15 --max-time 45 \
+              --output "$response_file" --write-out '%{http_code}' \
+              "https://kreatazz.tech${route}")"
+
+            if [ "$status" != "200" ]; then
+              echo "::error::${route} returned HTTP ${status}"
+              exit 1
+            fi
+
+            if grep -qiE 'cf-mitigated|Just a moment|challenge-platform' "$response_file"; then
+              echo "::error::${route} returned a Cloudflare challenge instead of the site"
+              exit 1
+            fi
+
+            grep -q 'id="root"' "$response_file" || {
+              echo "::error::${route} did not return the React application shell"
+              exit 1
+            }
+          done
+
+          provenance_status="$(curl --silent --show-error --location \
+            --connect-timeout 15 --max-time 45 --output /tmp/kreatazz-deploy.json \
+            --write-out '%{http_code}' \
+            'https://kreatazz.tech/.well-known/kreatazz-deploy.json')"
+          [ "$provenance_status" = "200" ] || {
+            echo "::error::Deployment provenance returned HTTP ${provenance_status}"
+            exit 1
+          }
+          grep -q "${GITHUB_SHA}" /tmp/kreatazz-deploy.json || {
+            echo "::error::Production provenance does not match ${GITHUB_SHA}"
+            exit 1
+          }

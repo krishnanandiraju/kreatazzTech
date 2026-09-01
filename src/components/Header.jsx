@@ -11,7 +11,7 @@ function normalize(path) {
 function Header({ companyName, brandShort, logoMark, nav, currentPath, currentHash }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const navigateInternal = (event, href, label = '') => {
+  const navigateInternal = (event, href) => {
     if (!href?.startsWith('/')) {
       return
     }
@@ -48,7 +48,7 @@ function Header({ companyName, brandShort, logoMark, nav, currentPath, currentHa
           aria-label={`${companyName} home`}
           onClick={(event) => {
             handleNavClick()
-            navigateInternal(event, '/', 'logo')
+            navigateInternal(event, '/')
           }}
         >
           <img
@@ -83,7 +83,7 @@ function Header({ companyName, brandShort, logoMark, nav, currentPath, currentHa
                   className={isActiveNavItem(item.href) ? 'is-active' : ''}
                   onClick={(event) => {
                     handleNavClick()
-                    navigateInternal(event, item.href, item.label)
+                    navigateInternal(event, item.href)
                   }}
                 >
                   {item.label}
