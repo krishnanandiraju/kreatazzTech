@@ -4,11 +4,11 @@
 - Direct navigation target routes: /, /about/, /services/, /manufacturing-intelligence/, invalid
 
 ## Production direct-navigation
-- /: status=403, final=https://kreatazz.tech/, title='', challengeDetected=False
-- /about/: status=403, final=https://kreatazz.tech/about/, title='', challengeDetected=False
-- /services/: status=403, final=https://kreatazz.tech/services/, title='', challengeDetected=False
-- /manufacturing-intelligence/: status=403, final=https://kreatazz.tech/manufacturing-intelligence/, title='', challengeDetected=False
-- /this-route-should-not-exist: status=403, final=https://kreatazz.tech/this-route-should-not-exist, title='', challengeDetected=False
+- /: status=403, final=https://kreatazz.tech/, title='', challengeDetected=True
+- /about/: status=403, final=https://kreatazz.tech/about/, title='', challengeDetected=True
+- /services/: status=403, final=https://kreatazz.tech/services/, title='', challengeDetected=True
+- /manufacturing-intelligence/: status=403, final=https://kreatazz.tech/manufacturing-intelligence/, title='', challengeDetected=True
+- /this-route-should-not-exist: status=403, final=https://kreatazz.tech/this-route-should-not-exist, title='', challengeDetected=True
 
 ## Local build direct-navigation (vite preview)
 - /: status=200, title='Kreatazz | Operational Intelligence Company', hasRoot=True, hasViteAssets=True
