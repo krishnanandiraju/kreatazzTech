@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Frontier AI to Kreatazz to Enterprise Execution</title>
+  <desc id="desc">A proprietary deployment layer model showing Kreatazz as the operational intelligence layer between frontier AI and enterprise execution.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#091426"/>
+      <stop offset="0.55" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#061018"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#008CFF"/>
+      <stop offset="1" stop-color="#39FF14"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="13" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0 0 0 0 0 0.55 0 0 0 0 1 0 0 0 0.42 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="620" rx="36" fill="url(#bg)"/>
+  <circle cx="140" cy="100" r="190" fill="#008CFF" opacity=".13"/>
+  <circle cx="1040" cy="520" r="220" fill="#39FF14" opacity=".07"/>
+  <g opacity=".16" stroke="#dcecff" stroke-width="1">
+    <path d="M80 500 C220 350 340 390 480 250 S780 170 1110 95" fill="none"/>
+    <path d="M105 115 C260 250 400 220 520 340 S815 505 1085 370" fill="none"/>
+    <path d="M160 560 C360 460 390 125 640 150 S915 280 1080 170" fill="none"/>
+  </g>
+  <g transform="translate(70 150)">
+    <rect x="0" y="0" width="290" height="240" rx="28" fill="#0E1B31" stroke="#24415F"/>
+    <text x="32" y="62" fill="#9FD1FF" font-size="20" font-family="Inter, Arial" letter-spacing="2">FRONTIER AI</text>
+    <text x="32" y="108" fill="#F6FAFF" font-size="30" font-weight="700" font-family="Inter, Arial">Capabilities</text>
+    <text x="32" y="150" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">Models • Agents • Copilots</text>
+    <text x="32" y="184" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">Industry AI • Knowledge</text>
+    <text x="32" y="218" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">Systems</text>
+  </g>
+  <g transform="translate(455 108)" filter="url(#glow)">
+    <rect x="0" y="0" width="290" height="324" rx="34" fill="#0D2539" stroke="url(#blue)" stroke-width="2.4"/>
+    <text x="38" y="62" fill="#39FF14" font-size="18" font-family="Inter, Arial" letter-spacing="2">KREATAZZ</text>
+    <text x="38" y="112" fill="#FFFFFF" font-size="31" font-weight="800" font-family="Inter, Arial">Operational</text>
+    <text x="38" y="150" fill="#FFFFFF" font-size="31" font-weight="800" font-family="Inter, Arial">Intelligence</text>
+    <text x="38" y="188" fill="#FFFFFF" font-size="31" font-weight="800" font-family="Inter, Arial">Layer</text>
+    <line x1="38" y1="218" x2="252" y2="218" stroke="#4EA9FF" opacity=".55"/>
+    <text x="38" y="256" fill="#D8E8F9" font-size="17" font-family="Inter, Arial">Architecture • Integration</text>
+    <text x="38" y="286" fill="#D8E8F9" font-size="17" font-family="Inter, Arial">Orchestration • Governance</text>
+  </g>
+  <g transform="translate(840 150)">
+    <rect x="0" y="0" width="290" height="240" rx="28" fill="#0E1B31" stroke="#24415F"/>
+    <text x="32" y="62" fill="#9FD1FF" font-size="20" font-family="Inter, Arial" letter-spacing="2">ENTERPRISE</text>
+    <text x="32" y="108" fill="#F6FAFF" font-size="30" font-weight="700" font-family="Inter, Arial">Execution</text>
+    <text x="32" y="150" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">People • Workflows</text>
+    <text x="32" y="184" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">Systems • Decisions</text>
+    <text x="32" y="218" fill="#B7C5DA" font-size="18" font-family="Inter, Arial">Performance</text>
+  </g>
+  <g stroke="url(#blue)" stroke-width="6" stroke-linecap="round" fill="none" opacity=".92">
+    <path d="M378 270 L430 270"/>
+    <path d="M770 270 L822 270"/>
+  </g>
+  <g fill="#39FF14">
+    <path d="M430 270 l-16 -10 v20z"/>
+    <path d="M822 270 l-16 -10 v20z"/>
+  </g>
+  <text x="600" y="548" text-anchor="middle" fill="#EAF4FF" font-size="24" font-weight="700" font-family="Inter, Arial">Frontier AI → Kreatazz → Enterprise Execution</text>
+  <text x="600" y="584" text-anchor="middle" fill="#9BA8BC" font-size="17" font-family="Inter, Arial">The deployment layer between AI capability and operational performance.</text>
+</svg>

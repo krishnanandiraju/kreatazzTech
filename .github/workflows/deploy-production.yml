@@ -1,0 +1,160 @@
+name: Deploy Kreatazz Production to GoDaddy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: kreatazz-godaddy-production
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: deploy_to_godaddy
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER || vars.FTP_SERVER }}
+      FTP_USERNAME: ${{ secrets.FTP_USERNAME || vars.FTP_USERNAME }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD || vars.FTP_PASSWORD }}
+      FTP_SERVER_DIR: ${{ secrets.FTP_PRODUCTION_SERVER_DIR || vars.FTP_PRODUCTION_SERVER_DIR }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static website
+        run: npm run build
+
+      - name: Validate build artifact is React app shell
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          [ -f dist/index.html ] || { echo "::error::dist/index.html missing"; exit 1; }
+          grep -q 'id="root"' dist/index.html || { echo "::error::dist/index.html is missing React root div"; exit 1; }
+          grep -Eq '/assets/index-.*\.(js|css)' dist/index.html || { echo "::error::dist/index.html does not reference Vite assets"; exit 1; }
+
+      - name: Write deployment provenance manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p dist/.well-known
+          cat > dist/.well-known/kreatazz-deploy.json <<EOF
+          {
+            "repository": "${GITHUB_REPOSITORY}",
+            "branch": "${GITHUB_REF_NAME}",
+            "sha": "${GITHUB_SHA}",
+            "workflow": "${GITHUB_WORKFLOW}",
+            "run_id": "${GITHUB_RUN_ID}",
+            "built_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "build_command": "npm run build",
+            "output_directory": "dist"
+          }
+          EOF
+
+      - name: Validate deployment secrets
+        shell: bash
+        run: |
+          missing=()
+
+          [ -n "$FTP_SERVER" ] || missing+=("FTP_SERVER")
+          [ -n "$FTP_USERNAME" ] || missing+=("FTP_USERNAME")
+          [ -n "$FTP_PASSWORD" ] || missing+=("FTP_PASSWORD")
+          [ -n "$FTP_SERVER_DIR" ] || missing+=("FTP_PRODUCTION_SERVER_DIR")
+
+          if [ ${#missing[@]} -gt 0 ]; then
+            echo "::error::Missing GitHub Actions secrets: ${missing[*]}"
+            exit 1
+          fi
+
+          if [ "$FTP_SERVER_DIR" = "/" ]; then
+            echo "::error::FTP_PRODUCTION_SERVER_DIR must not be '/'. Set the real document root (for example /public_html/)."
+            exit 1
+          fi
+
+      - name: Normalize and validate FTP host
+        shell: bash
+        run: |
+          host="$FTP_SERVER"
+          host="${host#ftp://}"
+          host="${host#ftps://}"
+          host="${host%%/*}"
+          host="${host%%:*}"
+          host="$(echo "$host" | tr -d '\r\n\t ' )"
+
+          if [ -z "$host" ]; then
+            echo "::error::FTP_SERVER resolves to an empty host after normalization"
+            exit 1
+          fi
+
+          if ! getent ahosts "$host" >/dev/null 2>&1; then
+            echo "::error::FTP host does not resolve in DNS: $host"
+            echo "::error::Use a real FTP hostname from GoDaddy/cPanel (not SFTP host and not full URL path)."
+            exit 1
+          fi
+
+          echo "FTP_SERVER_HOST=$host" >> "$GITHUB_ENV"
+
+      - name: Deploy dist to GoDaddy root
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ env.FTP_SERVER_HOST }}
+          username: ${{ env.FTP_USERNAME }}
+          password: ${{ env.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || vars.FTP_PORT || 21 }}
+          protocol: ${{ secrets.FTP_PROTOCOL || vars.FTP_PROTOCOL || 'ftp' }}
+          local-dir: ./dist/
+          server-dir: ${{ env.FTP_SERVER_DIR }}
+          dangerous-clean-slate: true
+
+      - name: Verify production routes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for route in / /about/ /services/ /manufacturing-intelligence/; do
+            response_file="$(mktemp)"
+            status="$(curl --silent --show-error --location --retry 4 --retry-all-errors \
+              --connect-timeout 15 --max-time 45 \
+              --output "$response_file" --write-out '%{http_code}' \
+              "https://kreatazz.tech${route}")"
+
+            if [ "$status" != "200" ]; then
+              echo "::error::${route} returned HTTP ${status}"
+              exit 1
+            fi
+
+            if grep -qiE 'cf-mitigated|Just a moment|challenge-platform' "$response_file"; then
+              echo "::error::${route} returned a Cloudflare challenge instead of the site"
+              exit 1
+            fi
+
+            grep -q 'id="root"' "$response_file" || {
+              echo "::error::${route} did not return the React application shell"
+              exit 1
+            }
+          done
+
+          provenance_status="$(curl --silent --show-error --location \
+            --connect-timeout 15 --max-time 45 --output /tmp/kreatazz-deploy.json \
+            --write-out '%{http_code}' \
+            'https://kreatazz.tech/.well-known/kreatazz-deploy.json')"
+          [ "$provenance_status" = "200" ] || {
+            echo "::error::Deployment provenance returned HTTP ${provenance_status}"
+            exit 1
+          }
+          grep -q "${GITHUB_SHA}" /tmp/kreatazz-deploy.json || {
+            echo "::error::Production provenance does not match ${GITHUB_SHA}"
+            exit 1
+          }
