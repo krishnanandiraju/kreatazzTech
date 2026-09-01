@@ -81,6 +81,14 @@ The existing GitHub Actions workflows are preserved:
 .github/workflows/deploy-production.yml
 ```
 
+Deployment source-of-truth variables:
+
+- `FTP_PRODUCTION_SERVER_DIR`: required production document root (example: `/public_html/`)
+- `FTP_PREVIEW_SERVER_DIR`: required preview deployment folder (must be different from production)
+
+The production workflow now fails fast if the production directory is unset or `/`.
+The preview workflow is manual (`workflow_dispatch`) to avoid accidental overwrite of production targets.
+
 The build output remains:
 
 ```text
