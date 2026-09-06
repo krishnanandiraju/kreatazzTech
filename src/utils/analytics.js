@@ -3,6 +3,47 @@
  * All events are sent to Google Analytics (G-1JTM83BSDR)
  */
 
+const sendEvent = (eventName, parameters = {}) => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, parameters)
+  }
+}
+
+export const trackPageView = (pagePath, pageTitle) => {
+  sendEvent('page_view', {
+    page_location: window.location.href,
+    page_path: pagePath,
+    page_title: pageTitle,
+  })
+}
+
+export const trackSolutionNavigatorSelection = (field, value) => {
+  sendEvent('solution_navigator_select', {
+    event_category: 'solution_navigator',
+    selection_field: field,
+    selection_value: value,
+  })
+}
+
+export const trackSolutionNavigatorCTA = ({
+  action,
+  outcome,
+  environment,
+  stage,
+  solution,
+  destination,
+}) => {
+  sendEvent('solution_navigator_cta', {
+    event_category: 'conversion',
+    action,
+    selected_outcome: outcome,
+    selected_environment: environment,
+    selected_stage: stage,
+    recommended_solution: solution,
+    destination,
+  })
+}
+
 /**
  * Track CTA button clicks
  * @param {string} buttonLabel - The text label of the button
@@ -10,14 +51,12 @@
  * @param {string} href - The destination URL (optional)
  */
 export const trackCTAClick = (buttonLabel, location, href) => {
-  if (window.gtag) {
-    window.gtag('event', 'cta_click', {
+  sendEvent('cta_click', {
       event_category: 'engagement',
       event_label: buttonLabel,
       location: location,
       destination: href || 'internal',
-    })
-  }
+  })
 }
 
 /**

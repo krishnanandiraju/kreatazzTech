@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { navigateTo } from '../utils/navigation'
+import { trackSolutionNavigatorCTA, trackSolutionNavigatorSelection } from '../utils/analytics'
 
 const outcomes = [
   { id: 'decisions', label: 'Make better decisions', description: 'Connect data, knowledge, and AI at the point of action.' },
@@ -73,6 +74,33 @@ function PathWizard() {
     navigateTo(href)
   }
 
+  const selectOutcome = (outcome) => {
+    setSelectedOutcome(outcome)
+    trackSolutionNavigatorSelection('outcome', outcome)
+  }
+
+  const selectEnvironment = (environment) => {
+    setSelectedEnvironment(environment)
+    trackSolutionNavigatorSelection('environment', environment)
+  }
+
+  const selectStage = (stage) => {
+    setSelectedStage(stage)
+    trackSolutionNavigatorSelection('stage', stage)
+  }
+
+  const followRecommendation = (event, action, href) => {
+    trackSolutionNavigatorCTA({
+      action,
+      outcome: selectedOutcome,
+      environment: selectedEnvironment,
+      stage: selectedStage,
+      solution: recommendation.primary.label,
+      destination: href,
+    })
+    navigate(event, href)
+  }
+
   return (
     <section className="section start-path" aria-labelledby="solution-navigator-title">
       <div className="shell">
@@ -87,7 +115,7 @@ function PathWizard() {
             <legend>What do you want to improve?</legend>
             <div className="wizard-options">
               {outcomes.map((outcome) => (
-                <button key={outcome.id} type="button" className={`wizard-option ${selectedOutcome === outcome.id ? 'active' : ''}`} onClick={() => setSelectedOutcome(outcome.id)} aria-pressed={selectedOutcome === outcome.id}>
+                <button key={outcome.id} type="button" className={`wizard-option ${selectedOutcome === outcome.id ? 'active' : ''}`} onClick={() => selectOutcome(outcome.id)} aria-pressed={selectedOutcome === outcome.id}>
                   <strong>{outcome.label}</strong>
                   <span>{outcome.description}</span>
                 </button>
@@ -99,7 +127,7 @@ function PathWizard() {
             <legend>Where will it create value?</legend>
             <div className="wizard-options compact wizard-context-options">
               {environments.map((environment) => (
-                <button key={environment.id} type="button" className={`wizard-option ${selectedEnvironment === environment.id ? 'active' : ''}`} onClick={() => setSelectedEnvironment(environment.id)} aria-pressed={selectedEnvironment === environment.id}>
+                <button key={environment.id} type="button" className={`wizard-option ${selectedEnvironment === environment.id ? 'active' : ''}`} onClick={() => selectEnvironment(environment.id)} aria-pressed={selectedEnvironment === environment.id}>
                   <strong>{environment.label}</strong>
                 </button>
               ))}
@@ -107,7 +135,7 @@ function PathWizard() {
             <p className="wizard-prompt">Where are you in the journey?</p>
             <div className="wizard-stage-options" aria-label="Delivery stage">
               {stages.map((stage) => (
-                <button key={stage.id} type="button" className={selectedStage === stage.id ? 'active' : ''} onClick={() => setSelectedStage(stage.id)} aria-pressed={selectedStage === stage.id}>
+                <button key={stage.id} type="button" className={selectedStage === stage.id ? 'active' : ''} onClick={() => selectStage(stage.id)} aria-pressed={selectedStage === stage.id}>
                   {stage.label}
                 </button>
               ))}
@@ -120,7 +148,7 @@ function PathWizard() {
             <p>{recommendation.guidance}</p>
             <div className="wizard-bundle">
               <span>Supporting capability</span>
-              <a href={recommendation.supporting.href} onClick={(event) => navigate(event, recommendation.supporting.href)}>
+              <a href={recommendation.supporting.href} onClick={(event) => followRecommendation(event, 'supporting_capability', recommendation.supporting.href)}>
                 {recommendation.supporting.label}
               </a>
               {recommendation.product && (
@@ -130,10 +158,10 @@ function PathWizard() {
                 </>
               )}
             </div>
-            <a className="btn btn-primary" href={recommendation.primary.href} onClick={(event) => navigate(event, recommendation.primary.href)}>
+            <a className="btn btn-primary" href={recommendation.primary.href} onClick={(event) => followRecommendation(event, 'explore_solution', recommendation.primary.href)}>
               Explore {recommendation.primary.label}
             </a>
-            <a className="btn btn-secondary" href="/#contact-us" onClick={(event) => navigate(event, '/#contact-us')}>
+            <a className="btn btn-secondary" href="/#contact-us" onClick={(event) => followRecommendation(event, 'discuss_use_case', '/#contact-us')}>
               Discuss your use case
             </a>
           </aside>

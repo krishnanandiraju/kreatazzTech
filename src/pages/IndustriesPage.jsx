@@ -1,5 +1,6 @@
 import Breadcrumbs from '../components/Breadcrumbs'
 import { navigateTo } from '../utils/navigation'
+import { trackServiceInteraction } from '../utils/analytics'
 
 function IndustriesPage({ items, breadcrumbs }) {
   return (
@@ -26,6 +27,7 @@ function IndustriesPage({ items, breadcrumbs }) {
                 href={item.href}
                 onClick={(event) => {
                   event.preventDefault()
+                  trackServiceInteraction(item.title, 'industry_page_click')
                   navigateTo(item.href)
                 }}
               >

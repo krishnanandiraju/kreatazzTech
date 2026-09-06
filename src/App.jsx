@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import Footer from './components/Footer'
-import FloatingCTA from './components/FloatingCTA'
 import Header from './components/Header'
 import BlogListPage from './pages/BlogListPage'
 import BlogPostPage from './pages/BlogPostPage'
@@ -11,6 +10,7 @@ import { blogPosts, blogPostBySlug } from './data/blogPosts'
 import { legacyPageBySlug } from './data/legacyPages'
 import { siteContent } from './data/siteContent'
 import Home from './pages/Home'
+import { trackPageView, trackScrollDepth, trackTimeOnPage } from './utils/analytics'
 
 function normalizePathname(pathname) {
   if (!pathname || pathname === '/') return '/'
@@ -253,6 +253,35 @@ function App() {
     upsertMetaByProperty('og:site_name', 'Kreatazz')
   }, [route, pathname, routeExists])
 
+  useEffect(() => {
+    trackPageView(pathname + window.location.search + hash, document.title)
+  }, [hash, pathname])
+
+  useEffect(() => {
+    const startedAt = Date.now()
+    const reached = new Set()
+    const thresholds = [25, 50, 75, 90]
+
+    const handleScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight
+      if (scrollable <= 0) return
+
+      const depth = Math.min(100, Math.round((window.scrollY / scrollable) * 100))
+      thresholds.forEach((threshold) => {
+        if (depth >= threshold && !reached.has(threshold)) {
+          reached.add(threshold)
+          trackScrollDepth(threshold)
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      trackTimeOnPage(pathname, (Date.now() - startedAt) / 1000)
+    }
+  }, [pathname])
+
   const navItems = useMemo(() => {
     if (route.type === 'home') {
       return siteContent.nav
@@ -296,7 +325,6 @@ function App() {
         quickLinks={siteContent.footer.quickLinks}
       />
 
-      <FloatingCTA />
     </>
   )
 }
