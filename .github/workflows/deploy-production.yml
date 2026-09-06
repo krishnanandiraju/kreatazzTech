@@ -1,4 +1,5 @@
 name: Deploy Kreatazz Production to GoDaddy
+# Production FTP account is jailed to the domain document root; use ./ as server-dir.
 
 on:
   workflow_dispatch:
