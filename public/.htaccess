@@ -2,11 +2,13 @@ DirectoryIndex index.html
 Options -MultiViews
 RewriteEngine On
 
-# Serve existing files and symlinks directly.
+# Serve existing files, directories, and symlinks directly.
+# Generated route directories contain their own SEO-specific index.html.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -l
 RewriteRule ^ - [L]
 
-# Route extensionless URLs (e.g. /blog/, /blog/post-slug/) to the SPA.
+# Route unknown extensionless URLs to the SPA for client-side 404 handling.
 RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{1,8}$
 RewriteRule ^ index.html [L]
