@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -184,3 +186,21 @@ jobs:
             echo "::error::Production provenance does not match ${GITHUB_SHA}"
             exit 1
           }
+
+      - name: Detect searchable content changes
+        id: searchable_changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] || \
+             git diff-tree --no-commit-id --name-only -r "${GITHUB_SHA}" | \
+               grep -Eq '^(src/|index\.html$|scripts/generate-route-entrypoints\.mjs$|public/robots\.txt$)'; then
+            echo "submit=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "submit=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Notify IndexNow of changed pages
+        if: steps.searchable_changes.outputs.submit == 'true'
+        run: npm run indexnow
