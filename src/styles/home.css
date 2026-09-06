@@ -38,6 +38,18 @@ main {
   padding: 1rem;
 }
 
+.wizard-step {
+  min-inline-size: 0;
+  margin: 0;
+}
+
+.wizard-step legend {
+  padding: 0;
+  color: #f2f7ff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
 .wizard-step h3,
 .wizard-result h3 {
   font-size: 1.05rem;
@@ -92,6 +104,90 @@ main {
   display: grid;
   gap: 0.55rem;
   align-content: start;
+}
+
+.wizard-result-eyebrow {
+  color: #9fd1ff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.wizard-result h3 {
+  color: #f4f8ff;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.wizard-context-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wizard-prompt {
+  margin-top: 1rem;
+  color: #f2f7ff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.wizard-stage-options {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.wizard-stage-options button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #cbd8eb;
+  padding: 0.48rem 0.65rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.wizard-stage-options button:hover,
+.wizard-stage-options button:focus-visible,
+.wizard-stage-options button.active {
+  border-color: #4ab2ff;
+  background: rgba(74, 178, 255, 0.14);
+  color: #f4f8ff;
+  outline: none;
+}
+
+.wizard-bundle {
+  margin: 0.25rem 0 0.35rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  display: grid;
+  gap: 0.2rem;
+}
+
+.wizard-bundle span {
+  margin-top: 0.3rem;
+  color: var(--kz-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.wizard-bundle span:first-child {
+  margin-top: 0;
+}
+
+.wizard-bundle a,
+.wizard-bundle strong {
+  color: #b9dcff;
+  font-size: 0.9rem;
+}
+
+.wizard-result .btn {
+  width: 100%;
+  text-align: center;
 }
 
 .wizard-result-title {

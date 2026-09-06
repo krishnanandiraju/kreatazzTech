@@ -1,119 +1,142 @@
 import { useMemo, useState } from 'react'
 import { navigateTo } from '../utils/navigation'
 
-const paths = [
-  {
-    id: 'delivery-speed',
-    label: 'Improve delivery speed',
-    description: 'For teams blocked by release delays, handoff gaps, and execution drag.',
-    destination: '/enterprise-workflow-modernization/',
-    pageLabel: 'Workflow Modernization',
-  },
-  {
-    id: 'decision-clarity',
-    label: 'Improve decision clarity',
-    description: 'For teams with fragmented data, unclear ownership, and reactive reporting.',
-    destination: '/ai-ml-solutions/',
-    pageLabel: 'AI & Data Platforms',
-  },
-  {
-    id: 'industry-use-case',
-    label: 'Explore industry use cases',
-    description: 'For leaders choosing where to start by industry priorities.',
-    destination: '/industries/',
-    pageLabel: 'Industry Solutions',
-  },
+const outcomes = [
+  { id: 'decisions', label: 'Make better decisions', description: 'Connect data, knowledge, and AI at the point of action.' },
+  { id: 'workflows', label: 'Modernize workflows', description: 'Remove handoff gaps and make execution more reliable.' },
+  { id: 'products', label: 'Build a digital product', description: 'Move an application or platform from idea to production.' },
+  { id: 'workforce', label: 'Strengthen workforce execution', description: 'Improve skills visibility, planning, and people operations.' },
+  { id: 'reliability', label: 'Improve cloud reliability', description: 'Modernize infrastructure, delivery, and observability.' },
+  { id: 'experience', label: 'Transform customer experience', description: 'Create clearer, more personalized digital journeys.' },
 ]
 
-const timelines = [
-  { id: 'now', label: 'Need impact in 30-60 days' },
-  { id: 'quarter', label: 'Planning over next quarter' },
-  { id: 'annual', label: 'Designing a yearly roadmap' },
+const environments = [
+  { id: 'enterprise', label: 'Enterprise functions' },
+  { id: 'manufacturing', label: 'Manufacturing' },
+  { id: 'engineering', label: 'Engineering' },
+  { id: 'healthcare', label: 'Healthcare' },
+  { id: 'workforce', label: 'Workforce & HR' },
+  { id: 'real-estate', label: 'Real estate' },
 ]
+
+const stages = [
+  { id: 'explore', label: 'Exploring' },
+  { id: 'pilot', label: 'Pilot in 30–60 days' },
+  { id: 'scale', label: 'Ready to scale' },
+]
+
+const outcomeCapabilities = {
+  decisions: { label: 'AI & Data Platforms', href: '/ai-ml-solutions/' },
+  workflows: { label: 'Workflow Modernization', href: '/enterprise-workflow-modernization/' },
+  products: { label: 'Product Engineering', href: '/mobile-and-web-application-development/' },
+  workforce: { label: 'Workforce Intelligence', href: '/workforce-intelligence/' },
+  reliability: { label: 'Cloud, DevOps & Automation', href: '/cloud-migration/' },
+  experience: { label: 'Product Engineering', href: '/mobile-and-web-application-development/' },
+}
+
+const environmentSolutions = {
+  manufacturing: { label: 'Manufacturing Intelligence', href: '/manufacturing-intelligence/' },
+  engineering: { label: 'Engineering Intelligence', href: '/engineering-intelligence/' },
+  healthcare: { label: 'Healthcare & Care Operations', href: '/healthcare-care-operations/' },
+  workforce: { label: 'Workforce Intelligence', href: '/workforce-intelligence/', product: 'PeopleOS HRMS' },
+  'real-estate': { label: 'Real Estate Buyer Experience', href: '/real-estate-buyer-experience/' },
+  enterprise: { label: 'Enterprise Function Intelligence', href: '/enterprise-function-intelligence/' },
+}
+
+const stageGuidance = {
+  explore: 'Start with an operational-intelligence discovery and identify the highest-value opportunity.',
+  pilot: 'Select one measurable use case, define a 30–60 day pilot, and establish adoption and outcome signals.',
+  scale: 'Create a reusable architecture, governance model, and rollout plan across teams and workflows.',
+}
 
 function PathWizard() {
-  const [selectedPath, setSelectedPath] = useState(paths[0].id)
-  const [selectedTimeline, setSelectedTimeline] = useState(timelines[0].id)
+  const [selectedOutcome, setSelectedOutcome] = useState('decisions')
+  const [selectedEnvironment, setSelectedEnvironment] = useState('enterprise')
+  const [selectedStage, setSelectedStage] = useState('explore')
 
   const recommendation = useMemo(() => {
-    const chosenPath = paths.find((path) => path.id === selectedPath) || paths[0]
-    const chosenTimeline = timelines.find((timeline) => timeline.id === selectedTimeline) || timelines[0]
-
-    const timelineNoteById = {
-      now: 'Start with one high-friction workflow and track quick operational wins.',
-      quarter: 'Define scope by business impact and build delivery milestones with owners.',
-      annual: 'Create a portfolio roadmap with platform, workflow, and adoption tracks.',
-    }
+    const capability = outcomeCapabilities[selectedOutcome]
+    const solution = environmentSolutions[selectedEnvironment]
+    const primary = selectedEnvironment === 'enterprise' ? capability : solution
+    const supporting = primary.href === capability.href ? environmentSolutions.enterprise : capability
 
     return {
-      ...chosenPath,
-      timelineLabel: chosenTimeline.label,
-      note: timelineNoteById[chosenTimeline.id],
+      primary,
+      supporting,
+      product: solution.product,
+      guidance: stageGuidance[selectedStage],
     }
-  }, [selectedPath, selectedTimeline])
+  }, [selectedEnvironment, selectedOutcome, selectedStage])
+
+  const navigate = (event, href) => {
+    event.preventDefault()
+    navigateTo(href)
+  }
 
   return (
-    <section className="section start-path" aria-labelledby="start-path-title">
+    <section className="section start-path" aria-labelledby="solution-navigator-title">
       <div className="shell">
         <div className="start-path-head">
-          <p className="kicker">Start Here</p>
-          <h2 id="start-path-title">Find the right path in under 30 seconds</h2>
-          <p>Pick your focus and timeline. We will guide you to the most relevant page.</p>
+          <p className="kicker">Kreatazz Solution Navigator</p>
+          <h2 id="solution-navigator-title">Find the right solution path for your operating challenge</h2>
+          <p>Choose the outcome you need and where it matters. We will connect you to the most relevant Kreatazz solution and capability.</p>
         </div>
 
         <div className="wizard-grid">
-          <div className="wizard-step">
-            <p className="wizard-step-label">Step 1</p>
-            <h3>Choose your priority</h3>
+          <fieldset className="wizard-step">
+            <legend>What do you want to improve?</legend>
             <div className="wizard-options">
-              {paths.map((path) => (
-                <button
-                  key={path.id}
-                  type="button"
-                  className={`wizard-option ${selectedPath === path.id ? 'active' : ''}`}
-                  onClick={() => setSelectedPath(path.id)}
-                >
-                  <strong>{path.label}</strong>
-                  <span>{path.description}</span>
+              {outcomes.map((outcome) => (
+                <button key={outcome.id} type="button" className={`wizard-option ${selectedOutcome === outcome.id ? 'active' : ''}`} onClick={() => setSelectedOutcome(outcome.id)} aria-pressed={selectedOutcome === outcome.id}>
+                  <strong>{outcome.label}</strong>
+                  <span>{outcome.description}</span>
                 </button>
               ))}
             </div>
-          </div>
+          </fieldset>
 
-          <div className="wizard-step">
-            <p className="wizard-step-label">Step 2</p>
-            <h3>Select your timeline</h3>
-            <div className="wizard-options compact">
-              {timelines.map((timeline) => (
-                <button
-                  key={timeline.id}
-                  type="button"
-                  className={`wizard-option ${selectedTimeline === timeline.id ? 'active' : ''}`}
-                  onClick={() => setSelectedTimeline(timeline.id)}
-                >
-                  <strong>{timeline.label}</strong>
+          <fieldset className="wizard-step">
+            <legend>Where will it create value?</legend>
+            <div className="wizard-options compact wizard-context-options">
+              {environments.map((environment) => (
+                <button key={environment.id} type="button" className={`wizard-option ${selectedEnvironment === environment.id ? 'active' : ''}`} onClick={() => setSelectedEnvironment(environment.id)} aria-pressed={selectedEnvironment === environment.id}>
+                  <strong>{environment.label}</strong>
                 </button>
               ))}
             </div>
-          </div>
+            <p className="wizard-prompt">Where are you in the journey?</p>
+            <div className="wizard-stage-options" aria-label="Delivery stage">
+              {stages.map((stage) => (
+                <button key={stage.id} type="button" className={selectedStage === stage.id ? 'active' : ''} onClick={() => setSelectedStage(stage.id)} aria-pressed={selectedStage === stage.id}>
+                  {stage.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
 
-          <div className="wizard-result">
-            <p className="wizard-step-label">Step 3</p>
-            <h3>Recommended next page</h3>
-            <p className="wizard-result-title">{recommendation.pageLabel}</p>
-            <p className="wizard-result-meta">{recommendation.timelineLabel}</p>
-            <p>{recommendation.note}</p>
-            <a
-              className="btn btn-primary"
-              href={recommendation.destination}
-              onClick={(event) => {
-                event.preventDefault()
-                navigateTo(recommendation.destination)
-              }}
-            >
-              Go to {recommendation.pageLabel}
+          <aside className="wizard-result" aria-live="polite">
+            <p className="wizard-result-eyebrow">Your Kreatazz solution path</p>
+            <h3>{recommendation.primary.label}</h3>
+            <p>{recommendation.guidance}</p>
+            <div className="wizard-bundle">
+              <span>Supporting capability</span>
+              <a href={recommendation.supporting.href} onClick={(event) => navigate(event, recommendation.supporting.href)}>
+                {recommendation.supporting.label}
+              </a>
+              {recommendation.product && (
+                <>
+                  <span>Relevant Kreatazz product</span>
+                  <strong>{recommendation.product}</strong>
+                </>
+              )}
+            </div>
+            <a className="btn btn-primary" href={recommendation.primary.href} onClick={(event) => navigate(event, recommendation.primary.href)}>
+              Explore {recommendation.primary.label}
             </a>
-          </div>
+            <a className="btn btn-secondary" href="/#contact-us" onClick={(event) => navigate(event, '/#contact-us')}>
+              Discuss your use case
+            </a>
+          </aside>
         </div>
       </div>
     </section>

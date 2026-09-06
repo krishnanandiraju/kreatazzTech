@@ -278,7 +278,7 @@ export const siteContent = {
         image: '/services/service-workflow-operations.jpg',
         visualMode: 'cover',
         ctaLabel: 'Open PeopleOS',
-        ctaHref: 'https://app.peopleos.kretazz.tech',
+        ctaHref: 'https://app.peopleos.kreatazz.tech',
       },
     ],
   },
@@ -327,7 +327,7 @@ export const siteContent = {
       'Cloud, DevOps & Automation',
     ],
     products: [
-      { label: 'PeopleOS HRMS', href: 'https://app.peopleos.kretazz.tech' },
+      { label: 'PeopleOS HRMS', href: 'https://app.peopleos.kreatazz.tech' },
     ],
   },
 }
