@@ -44,6 +44,26 @@ jobs:
           [ -f dist/index.html ] || { echo "::error::dist/index.html missing"; exit 1; }
           grep -q 'id="root"' dist/index.html || { echo "::error::dist/index.html is missing React root div"; exit 1; }
           grep -Eq '/assets/index-.*\.(js|css)' dist/index.html || { echo "::error::dist/index.html does not reference Vite assets"; exit 1; }
+          grep -Fq 'href="https://kreatazz.tech/manufacturing-intelligence/"' dist/manufacturing-intelligence/index.html || {
+            echo "::error::Manufacturing page is missing its static canonical URL"
+            exit 1
+          }
+          grep -Fq 'Manufacturing Intelligence &amp; AI Operations | Kreatazz' dist/manufacturing-intelligence/index.html || {
+            echo "::error::Manufacturing page is missing its static SEO title"
+            exit 1
+          }
+          grep -Fq '"@type":"Organization"' dist/index.html || {
+            echo "::error::Homepage is missing Organization structured data"
+            exit 1
+          }
+          grep -Fq '"@type":"Article"' dist/blog/manufacturing-intelligence-shift-handoff-playbook/index.html || {
+            echo "::error::Blog route is missing Article structured data"
+            exit 1
+          }
+          [ "$(grep -c '<loc>' dist/sitemap.xml)" -ge 47 ] || {
+            echo "::error::Generated sitemap is incomplete"
+            exit 1
+          }
 
       - name: Write deployment provenance manifest
         shell: bash
@@ -143,6 +163,11 @@ jobs:
 
             grep -q 'id="root"' "$response_file" || {
               echo "::error::${route} did not return the React application shell"
+              exit 1
+            }
+
+            grep -Fq "rel=\"canonical\" href=\"https://kreatazz.tech${route}\"" "$response_file" || {
+              echo "::error::${route} did not return its own static canonical URL"
               exit 1
             }
           done
