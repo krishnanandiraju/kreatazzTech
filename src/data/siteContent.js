@@ -211,6 +211,18 @@ export const siteContent = {
           'Enhance execution across sales, finance, procurement, customer operations, project delivery, and knowledge management through intelligent workflow systems.',
         href: '/enterprise-function-intelligence/',
       },
+      {
+        title: 'Healthcare & Care Operations',
+        description:
+          'Strengthen care and administrative operations through structured health data, reliable handoffs, accountable work queues, and governed decision support.',
+        href: '/healthcare-care-operations/',
+      },
+      {
+        title: 'Real Estate & Buyer Experience',
+        description:
+          'Guide buyers from discovery through personalization with explainable recommendations, shared decision context, and better-connected sales workflows.',
+        href: '/real-estate-buyer-experience/',
+      },
     ],
   },
   services: {
