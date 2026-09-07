@@ -50,7 +50,7 @@ jobs:
             echo "::error::Manufacturing page is missing its static canonical URL"
             exit 1
           }
-          grep -Fq 'Manufacturing Intelligence &amp; AI Operations | Kreatazz' dist/manufacturing-intelligence/index.html || {
+          grep -Fq 'Manufacturing Intelligence &amp; Predictive Maintenance | Kreatazz' dist/manufacturing-intelligence/index.html || {
             echo "::error::Manufacturing page is missing its static SEO title"
             exit 1
           }

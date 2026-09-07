@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { blogPosts } from '../src/data/blogPosts.js'
 import { legacyPages } from '../src/data/legacyPages.js'
+import { searchMetadataByPath } from '../src/data/searchMetadata.js'
 
 const siteUrl = 'https://kreatazz.tech'
 const siteReleaseDate = '2026-09-06'
@@ -17,7 +18,7 @@ const [appShell, existingSitemap] = await Promise.all([
 const sitemapRoutes = [...existingSitemap.matchAll(/<loc>https:\/\/kreatazz\.tech([^<]*)<\/loc>/g)]
   .map((match) => match[1] || '/')
 
-const routeOverrides = {
+const fallbackRouteOverrides = {
   '/': {
     title: 'Operational Intelligence Consulting in India | Kreatazz',
     description:
@@ -104,6 +105,8 @@ const routeOverrides = {
   },
 }
 
+const routeOverrides = { ...fallbackRouteOverrides, ...searchMetadataByPath }
+
 const escapeAttribute = (value) =>
   String(value)
     .replaceAll('&', '&amp;')
@@ -183,6 +186,7 @@ const metadataForRoute = (routePath) => {
     modified: base.modified || siteReleaseDate,
     category: base.category,
     tags: base.tags,
+    keywords: override.keywords || base.tags || [],
   }
 }
 
@@ -219,7 +223,7 @@ const routeSchema = (routePath, metadata) => {
       datePublished: metadata.published,
       dateModified: metadata.modified,
       articleSection: metadata.category,
-      keywords: metadata.tags?.join(', '),
+      keywords: metadata.keywords.join(', '),
       mainEntityOfPage: url,
       author: organizationReference,
       publisher: organizationReference,
@@ -235,6 +239,8 @@ const routeSchema = (routePath, metadata) => {
       url,
       areaServed: { '@type': 'Country', name: 'India' },
       provider: organizationReference,
+      serviceType: metadata.keywords[0] || metadata.name,
+      keywords: metadata.keywords.join(', '),
     }
   }
 
@@ -245,12 +251,23 @@ const routeSchema = (routePath, metadata) => {
     description: metadata.description,
     url,
     publisher: organizationReference,
+    keywords: metadata.keywords.join(', '),
   }
 }
 
 const replaceMeta = (html, attribute, key, value) => {
   const pattern = new RegExp(`(<meta\\s+${attribute}=["']${key}["']\\s+content=["'])[^"']*(["']\\s*\\/?>)`, 'i')
   return html.replace(pattern, `$1${escapeAttribute(value)}$2`)
+}
+
+const upsertMeta = (html, attribute, key, value) => {
+  const pattern = new RegExp(`<meta\\s+${attribute}=["']${key}["']`, 'i')
+  if (pattern.test(html)) return replaceMeta(html, attribute, key, value)
+
+  return html.replace(
+    '</head>',
+    `    <meta ${attribute}="${escapeAttribute(key)}" content="${escapeAttribute(value)}" />\n  </head>`,
+  )
 }
 
 const renderRouteHtml = (routePath) => {
@@ -265,6 +282,19 @@ const renderRouteHtml = (routePath) => {
     `$1${canonical}$2`,
   )
   html = replaceMeta(html, 'name', 'description', metadata.description)
+  html = upsertMeta(html, 'name', 'keywords', metadata.keywords.join(', '))
+  html = upsertMeta(
+    html,
+    'name',
+    'googlebot',
+    'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+  )
+  html = upsertMeta(
+    html,
+    'name',
+    'bingbot',
+    'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+  )
 
   const replacements = [
     ['property', 'og:title', metadata.title],

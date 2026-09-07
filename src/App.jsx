@@ -9,6 +9,7 @@ import SolutionsPage from './pages/SolutionsPage'
 import { blogPosts, blogPostBySlug } from './data/blogPosts'
 import { legacyPageBySlug } from './data/legacyPages'
 import { siteContent } from './data/siteContent'
+import { searchMetadataByPath } from './data/searchMetadata'
 import Home from './pages/Home'
 import { trackPageView, trackScrollDepth, trackTimeOnPage } from './utils/analytics'
 
@@ -205,6 +206,12 @@ function App() {
 
     const canonicalPath = pathname === '/' ? '/' : `${normalizePathname(pathname)}/`
     const canonicalHref = `${window.location.origin}${canonicalPath}`
+    const searchMetadata = searchMetadataByPath[canonicalPath]
+
+    if (searchMetadata) {
+      title = searchMetadata.title
+      description = searchMetadata.description
+    }
 
     const upsertMetaByName = (name, content) => {
       let tag = document.querySelector(`meta[name="${name}"]`)
@@ -242,6 +249,19 @@ function App() {
     document.title = title
     upsertMetaByName('description', description)
     upsertMetaByName('robots', routeExists ? 'index,follow,max-image-preview:large' : 'noindex,follow')
+    upsertMetaByName('keywords', searchMetadata?.keywords?.join(', ') || blogPost?.tags?.join(', ') || '')
+    upsertMetaByName(
+      'googlebot',
+      routeExists
+        ? 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1'
+        : 'noindex,follow',
+    )
+    upsertMetaByName(
+      'bingbot',
+      routeExists
+        ? 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1'
+        : 'noindex,follow',
+    )
     upsertMetaByName('twitter:card', 'summary_large_image')
     upsertMetaByName('twitter:title', title)
     upsertMetaByName('twitter:description', description)
