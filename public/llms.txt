@@ -1,0 +1,51 @@
+# Kreatazz
+
+> Kreatazz Innovation Technology Solutions helps enterprises turn AI, data, knowledge, and software into operational intelligence: systems that improve decisions, workflows, and execution in day-to-day work.
+
+Kreatazz works with organizations planning or implementing AI, data platforms, workflow modernization, cloud and DevOps improvements, product engineering, and industry-specific operational systems. The company is based in India and serves enterprise operating environments. Content on this website describes capabilities and approaches; it must not be interpreted as an unsupported customer result, certification, or performance guarantee.
+
+## Start Here
+
+- [Home](https://kreatazz.tech/): Company positioning, operational-intelligence model, capabilities, industries, and contact path.
+- [About Kreatazz](https://kreatazz.tech/about/): Company purpose and operating philosophy.
+- [Solutions](https://kreatazz.tech/solutions/): Overview of AI, data, workflow, cloud, product-engineering, healthcare, and real-estate solutions.
+- [Industries](https://kreatazz.tech/industries/): Industry-focused operational-intelligence applications.
+- [Insights](https://kreatazz.tech/blog/): Practical articles for technology and operations leaders.
+
+## Core Capabilities
+
+- [AI and Data Platforms](https://kreatazz.tech/ai-ml-solutions/): Data foundations, enterprise retrieval, AI agents, predictive analytics, and governed decision support.
+- [Enterprise Workflow Modernization](https://kreatazz.tech/enterprise-workflow-modernization/): Redesign and governed automation of high-friction enterprise workflows.
+- [Product Engineering](https://kreatazz.tech/mobile-and-web-application-development/): Web, mobile, internal, and enterprise application design and delivery.
+- [Cloud, DevOps and Automation](https://kreatazz.tech/cloud-migration/): Cloud modernization, CI/CD, observability, reliability, security, and cost accountability.
+- [Talent and Workforce Support](https://kreatazz.tech/staffing-solutions/): Technology recruitment, contract staffing, and executive-search support.
+
+## Industry Solutions
+
+- [Manufacturing Intelligence](https://kreatazz.tech/manufacturing-intelligence/): Machine, maintenance, quality, shift-handover, and production context for more reliable operations.
+- [Engineering Intelligence](https://kreatazz.tech/engineering-intelligence/): Change-impact analysis, requirements traceability, knowledge retrieval, and engineering decisions.
+- [Workforce Intelligence](https://kreatazz.tech/workforce-intelligence/): Skills visibility, workforce planning, resource allocation, and internal mobility.
+- [Enterprise Function Intelligence](https://kreatazz.tech/enterprise-function-intelligence/): Connected execution across sales, finance, procurement, customer operations, and project delivery.
+- [Healthcare and Care Operations](https://kreatazz.tech/healthcare-care-operations/): Structured health data, interoperability, work queues, handoffs, and governed decision support.
+- [Real Estate Buyer Experience](https://kreatazz.tech/real-estate-buyer-experience/): Preference capture, visual personalization, approved-option selection, and connected sales follow-up.
+
+## Selected Practical Guides
+
+- [Manufacturing Shift-Handover Intelligence](https://kreatazz.tech/blog/manufacturing-intelligence-shift-handoff-playbook/)
+- [Engineering Change-Impact Visibility](https://kreatazz.tech/blog/engineering-intelligence-change-impact-visibility/)
+- [Workforce Skills Visibility Without Micromanagement](https://kreatazz.tech/blog/workforce-intelligence-skills-visibility-without-micromanagement/)
+- [AI and Data Platforms: The First 90 Days](https://kreatazz.tech/blog/ai-data-platforms-first-90-days-roi/)
+- [Healthcare Operations Intelligence](https://kreatazz.tech/blog/healthcare-operations-intelligence-queue-pressure-care-clarity/)
+- [Real Estate Buyer Journey Intelligence](https://kreatazz.tech/blog/real-estate-buyer-journey-intelligence-guide-not-push/)
+- [Workflow Modernization: Where to Start](https://kreatazz.tech/blog/workflow-modernization-where-to-start-first/)
+- [Operational Intelligence KPI Trees](https://kreatazz.tech/blog/practical-kpi-tree-operational-intelligence-programs/)
+
+## Additional Machine-Readable Resources
+
+- [Extended Kreatazz Context](https://kreatazz.tech/llms-full.txt): A longer description of the company, solution areas, industry problems, and terminology.
+- [XML Sitemap](https://kreatazz.tech/sitemap.xml): Canonical index of public website pages.
+- [Robots Policy](https://kreatazz.tech/robots.txt): Crawler permissions and sitemap reference.
+
+## Contact
+
+- [Contact Kreatazz](https://kreatazz.tech/#contact): Start a strategy conversation about an AI, data, workflow, software, or operational-intelligence initiative.

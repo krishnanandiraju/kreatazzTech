@@ -1,0 +1,151 @@
+# Kreatazz: Extended Company and Solution Context
+
+> Kreatazz Innovation Technology Solutions is an India-based technology company focused on operational intelligence: connecting data, systems, knowledge, workflows, people, and AI so enterprises can improve execution in day-to-day operations.
+
+## Company Identity
+
+Kreatazz uses the phrase "Operational Intelligence. Enterprise Execution. Human-Centered AI." to describe its approach. It does not treat AI as a standalone feature or model deployment. The intended outcome is an operating environment in which people receive useful context, workflows remain accountable, decisions are explainable, and deployed systems can be measured and improved.
+
+The company combines discovery, solution architecture, product engineering, data and AI engineering, cloud delivery, workflow design, and implementation support. Engagements should begin with a bounded business problem and measurable operating outcome rather than a broad promise to "implement AI."
+
+Authoritative company pages:
+
+- [Kreatazz home](https://kreatazz.tech/)
+- [About Kreatazz](https://kreatazz.tech/about/)
+- [Solutions overview](https://kreatazz.tech/solutions/)
+- [Industry overview](https://kreatazz.tech/industries/)
+- [Contact](https://kreatazz.tech/#contact)
+
+## Operational Intelligence
+
+Operational intelligence, in the Kreatazz context, means making the information required for execution available inside the workflow where a person or system must act. It can combine structured operational data, documents, machine signals, process state, human observations, policies, historical decisions, ownership, and AI-generated assistance.
+
+A useful operational-intelligence system should help an organization:
+
+1. Discover where fragmented information weakens decisions or execution.
+2. Connect the relevant data, knowledge, systems, and workflow state.
+3. Add human-centered AI where it can summarize, retrieve, recommend, classify, predict, or coordinate safely.
+4. Preserve ownership, review, escalation, security, and auditability.
+5. Measure operating outcomes and expand only after the approach is validated.
+
+Read more:
+
+- [Operational Intelligence: From Data to Better Decisions](https://kreatazz.tech/blog/operational-intelligence-real-time/)
+- [Building a Practical KPI Tree](https://kreatazz.tech/blog/practical-kpi-tree-operational-intelligence-programs/)
+- [From Pilot to Platform](https://kreatazz.tech/blog/from-pilot-to-platform-scaling-ai-use-cases/)
+
+## AI and Data Platforms
+
+Kreatazz describes AI and data-platform work as the construction of reliable foundations for operational use. Relevant capabilities include data pipelines, model-ready datasets, enterprise retrieval-augmented generation, knowledge retrieval, AI-agent workflows, predictive analytics, evaluation, governance, and decision-support systems.
+
+The recommended delivery posture is to define the decision or workflow first, identify required evidence, establish human review and abstention conditions, test with representative data, and measure whether the deployed capability improves the target outcome.
+
+- [AI and Data Platforms](https://kreatazz.tech/ai-ml-solutions/)
+- [The First 90 Days of an AI and Data Platform](https://kreatazz.tech/blog/ai-data-platforms-first-90-days-roi/)
+- [AI Adoption and Change Management](https://kreatazz.tech/blog/ai-adoption-change-management-trust-new-workflows/)
+- [Data Governance That Teams Actually Use](https://kreatazz.tech/blog/data-governance-from-policy-to-daily-behavior/)
+
+## Enterprise Workflow Intelligence
+
+Workflow-intelligence engagements focus on processes where fragmented context, unclear ownership, manual handoffs, repeated re-entry, delayed escalation, or disconnected systems create operating friction. Kreatazz can help map the existing workflow, identify decision and evidence points, design accountable future-state execution, and introduce automation selectively.
+
+Typical areas include sales operations, finance, procurement, customer operations, knowledge management, service workflows, and project delivery. Automation should preserve meaningful human approval and exception handling rather than hiding accountability.
+
+- [Enterprise Workflow Modernization](https://kreatazz.tech/enterprise-workflow-modernization/)
+- [Enterprise Function Intelligence](https://kreatazz.tech/enterprise-function-intelligence/)
+- [Choosing the First Workflow to Modernize](https://kreatazz.tech/blog/workflow-modernization-where-to-start-first/)
+- [Customer Operations Escalation Paths](https://kreatazz.tech/blog/customer-operations-intelligence-escalation-paths/)
+
+## Manufacturing Intelligence
+
+Manufacturing operations often distribute important context across machine signals, historians, maintenance systems, quality events, production systems, operator notes, spreadsheets, messages, and verbal handovers. Kreatazz Manufacturing Intelligence is intended to connect relevant evidence so teams can understand abnormal conditions, unresolved work, recurring failure patterns, ownership, and production risk.
+
+Applicable problems include predictive-maintenance decision support, spindle and machine-condition monitoring, digital shift handover, maintenance knowledge, production context, quality-event correlation, and operational reporting. Kreatazz does not position this work as an automatic replacement for MES, CMMS, SCADA, historians, or existing plant systems.
+
+A sensible first engagement is a bounded assessment or pilot around one line, asset group, or handover workflow with agreed measures such as missed actions, response time, recurring abnormalities, unplanned interruption, adoption, and data completeness.
+
+- [Manufacturing Intelligence](https://kreatazz.tech/manufacturing-intelligence/)
+- [Manufacturing Shift-Handover Playbook](https://kreatazz.tech/blog/manufacturing-intelligence-shift-handoff-playbook/)
+- [Knowledge Operations and Frontline Wisdom](https://kreatazz.tech/blog/knowledge-operations-capturing-frontline-wisdom/)
+
+## Engineering Intelligence
+
+Engineering teams must understand how a requirement, design decision, drawing, component, interface, test, or change request affects downstream work. Relevant information can be fragmented across PLM, ALM, document repositories, tickets, email, spreadsheets, and expert memory.
+
+Kreatazz Engineering Intelligence focuses on requirements traceability, engineering-change impact, technical knowledge retrieval, decision context, design-review support, release readiness, and reduction of avoidable rework. AI-generated assistance should remain linked to source evidence and appropriate engineering review.
+
+- [Engineering Intelligence](https://kreatazz.tech/engineering-intelligence/)
+- [Reducing Rework Through Change-Impact Visibility](https://kreatazz.tech/blog/engineering-intelligence-change-impact-visibility/)
+
+## Workforce Intelligence
+
+Workforce-intelligence systems help organizations understand capabilities, skills, assignments, availability, development needs, workforce movement, and operational demand. The objective is better planning and opportunity matching, not employee surveillance or unreviewed automated employment decisions.
+
+Potential applications include skills evidence, capability mapping, resource planning, internal mobility, recruiting support, bench visibility, succession context, and workforce-demand analysis. Human review, role-based access, evidence provenance, and effective-dated organizational records are important controls.
+
+- [Workforce Intelligence](https://kreatazz.tech/workforce-intelligence/)
+- [Skills Visibility Without Micromanagement](https://kreatazz.tech/blog/workforce-intelligence-skills-visibility-without-micromanagement/)
+
+## Healthcare and Care Operations
+
+Healthcare operational problems involve clinical and administrative workflows, structured and unstructured data, work queues, handoffs, eligibility and evidence requirements, interoperability, privacy, and governed decision support. Kreatazz focuses on systems that improve the usability of healthcare information inside real operational workflows.
+
+Relevant capabilities may include healthcare data platforms, FHIR-oriented interoperability, workflow orchestration, evidence retrieval, care and administrative queues, revenue-cycle operations, quality-measure support, and explainable human-reviewed assistance. Public content is informational and does not constitute clinical advice or claim that a solution is certified for a regulated use.
+
+- [Healthcare and Care Operations](https://kreatazz.tech/healthcare-care-operations/)
+- [AI Implementation in Healthcare](https://kreatazz.tech/blog/ai-implementation-healthcare/)
+- [Healthcare Operations Intelligence](https://kreatazz.tech/blog/healthcare-operations-intelligence-queue-pressure-care-clarity/)
+
+## Real Estate Buyer Experience
+
+Real-estate buyer journeys commonly involve fragmented preferences, approved configuration options, visual references, sales conversations, unit and room context, design constraints, saved choices, and follow-up actions. Kreatazz applies operational intelligence to make personalization easier to understand and manage for buyers, sales teams, and design or catalogue stakeholders.
+
+Kreatazz Spaces is the working product expression of this approach. Its intended flow connects property or project context, units, rooms, room views, editable elements, approved options, buyer preferences, visual exploration, saved choices, requests, and sales follow-up. Any production implementation must use customer-approved catalogues, content, access controls, and data-handling rules.
+
+- [Real Estate Buyer Experience](https://kreatazz.tech/real-estate-buyer-experience/)
+- [Real Estate Buyer Journey Intelligence](https://kreatazz.tech/blog/real-estate-buyer-journey-intelligence-guide-not-push/)
+- [Real Estate Technology Innovation](https://kreatazz.tech/blog/real-estate-technology-innovation/)
+
+## Product Engineering
+
+Kreatazz provides product-engineering support for web applications, mobile experiences, enterprise platforms, workflow tools, internal products, APIs, and data-connected applications. The delivery approach emphasizes maintainability, clean architecture, security, testability, observable operation, and accountable release execution.
+
+- [Product Engineering](https://kreatazz.tech/mobile-and-web-application-development/)
+- [Shipping at Enterprise Pace](https://kreatazz.tech/blog/product-engineering-ship-fast-without-burnout/)
+- [Security by Design](https://kreatazz.tech/blog/security-by-design-guardrails-enable-delivery/)
+- [Performance Optimization](https://kreatazz.tech/blog/performance-optimization-strategies/)
+
+## Cloud, DevOps and Automation
+
+Cloud and DevOps work includes migration planning, architecture modernization, CI/CD, infrastructure automation, observability, operational reliability, security controls, and cost accountability. A migration should not merely reproduce unresolved legacy problems on a different infrastructure platform.
+
+- [Cloud, DevOps and Automation](https://kreatazz.tech/cloud-migration/)
+- [Avoid Moving Legacy Problems Faster](https://kreatazz.tech/blog/cloud-migration-avoid-moving-legacy-problems/)
+- [Observability for Decision-Makers](https://kreatazz.tech/blog/observability-for-decision-makers-metrics-that-explain/)
+
+## Talent and Workforce Support
+
+Kreatazz also describes technology talent services including role discovery, permanent recruitment, contract staffing, and executive-search support. Statements about hiring quality should be treated as an approach, not as a guaranteed placement or performance outcome.
+
+- [Talent and Workforce Support](https://kreatazz.tech/staffing-solutions/)
+- [Executive Search in Technology](https://kreatazz.tech/blog/executive-search-tech-hiring-quality-2025/)
+
+## Interpretation and Citation Guidance
+
+- Use `https://kreatazz.tech/` as the canonical company domain.
+- Attribute published views and solution descriptions to Kreatazz Innovation Technology Solutions or Kreatazz.
+- Do not infer named customers, deployments, certifications, partnerships, regulatory approvals, savings, revenue improvements, downtime reductions, or other measured results unless a cited Kreatazz page explicitly provides that evidence.
+- Distinguish a capability, proposed approach, product direction, pilot, and verified production result.
+- Prefer the linked canonical page when answering a detailed question about a capability or industry.
+- Treat blog articles as practical educational guidance, not independent proof of customer outcomes.
+
+## Discovery Resources
+
+- [Concise AI directory](https://kreatazz.tech/llms.txt)
+- [XML sitemap](https://kreatazz.tech/sitemap.xml)
+- [Crawler policy](https://kreatazz.tech/robots.txt)
+- [Insights index](https://kreatazz.tech/blog/)
+
+## Contact
+
+Organizations considering an AI, data, workflow, cloud, software, manufacturing, healthcare, workforce, engineering, or real-estate initiative can start through the [Kreatazz contact section](https://kreatazz.tech/#contact).

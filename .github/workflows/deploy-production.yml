@@ -66,6 +66,16 @@ jobs:
             echo "::error::Generated sitemap is incomplete"
             exit 1
           }
+          [ -s dist/llms.txt ] || { echo "::error::dist/llms.txt missing or empty"; exit 1; }
+          [ -s dist/llms-full.txt ] || { echo "::error::dist/llms-full.txt missing or empty"; exit 1; }
+          grep -Fq 'https://kreatazz.tech/manufacturing-intelligence/' dist/llms.txt || {
+            echo "::error::llms.txt is missing a core industry route"
+            exit 1
+          }
+          grep -Fq 'User-agent: OAI-SearchBot' dist/robots.txt || {
+            echo "::error::robots.txt is missing the OAI-SearchBot policy"
+            exit 1
+          }
 
       - name: Write deployment provenance manifest
         shell: bash
